@@ -1,6 +1,5 @@
 # interviews
-my interview prep and experiences
-look into my experience:
+my interview prep and experiences. A quick look into my experience:
 1. maintain running median of incoming numbers
 2. maintain running avg of incoming numbers 
 3. binary tree and BST are favorites to all interviewers
