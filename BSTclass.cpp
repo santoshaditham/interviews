@@ -12,9 +12,10 @@ class Node{
 	Node(int);
 	~Node();
 	void insert(int);
-	void delet(int);
-	void search(int);
 	void traverse(int);
+	Node* search(int);
+	void delet(Node*);
+
 };
 
 Node::Node(int value){ 
@@ -40,9 +41,15 @@ void Node::insert(int value){
 	}
 }
 
-void Node::delet(int value){ //incomplete
-	if(this->data==value){
-		cout << "deleted" << endl;
+void Node::delet(Node* node){//incomplete
+	if(node == NULL) return;
+	if(node->left==NULL && node->right==NULL){
+		cout << "no issues" << endl;
+	}
+	else{
+		if(node->left!=NULL && node->right==NULL){}
+		if(node->left==NULL && node->right!=NULL){}
+		if(node->left!=NULL && node->right!=NULL){}
 	}
 }
 
@@ -69,10 +76,10 @@ void Node::traverse(int option){
 	}
 }
 
-void Node::search(int value){
-	if(this->data==value) cout << "found " << value << endl;
-	if(this->data < value) {this->right->search(value);}
-	if(this->data > value) {this->left->search(value);}
+Node* Node::search(int value){
+	if(this->data==value) {cout << "found " << value << endl; return this;}
+	if(this->data < value) {this->right->search(value); return NULL;}
+	if(this->data > value) {this->left->search(value); return NULL;}
 }
 
 int main() {
@@ -81,7 +88,6 @@ int main() {
 	cout << "inorder traversal" << endl; root->traverse(1);
 	cout << "preorder traversal" << endl; root->traverse(2);
 	cout << "postorder traversal" << endl; root->traverse(3);
-	root->search(5); 
-	root->delet(5);
+	root->delet(root->search(5));
 	return 0;
 }
