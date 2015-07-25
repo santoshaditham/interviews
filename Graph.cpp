@@ -42,7 +42,7 @@ void Graph::insert(Node* n, Node* p){
 //to-be-completed
 void Graph::delet(Node* n){}
 
-//either value is found at current node or recursive DFS on each child 
+//either value is found at current node or recursive DFS on current node 
 void Graph::DFS(Node* from, int val){
 	if(from==NULL) from=this->start;
 	from->visited=true;
@@ -50,13 +50,13 @@ void Graph::DFS(Node* from, int val){
 	else{
     	if(!from->children->empty()){
     		for(auto child: *(from->children)){
-    			if(!child->visited) {cout << child->data << endl; DFS(child, val);}
+    			if(!child->visited) DFS(child, val);
     		}
     	}
 	}
 }
 
-//not-working 
+//either value is found at current node or check all nodes at current level before recursive calls
 void Graph::BFS(Node* from, int val){
 	if(from==NULL) from=this->start;
 	if(from->data == val) {cout << "BFS found " << val << endl; return;}
@@ -65,8 +65,7 @@ void Graph::BFS(Node* from, int val){
     		for(auto child: *(from->children)){
     			if(!child->visited){
     				child->visited=true;
-    				cout << child->data << endl;
-    				if(child->data==val) return;
+    				if(child->data==val) {cout << "BFS found " << val << endl; return;}
     			}
     		}
     		for(auto child: *(from->children)){
@@ -86,11 +85,6 @@ int main() {
     g1->insert(n2, NULL); g1->insert(n5, n2); g1->insert(n6, n2); g1->insert(n7, n2);
     g1->insert(n8, n3); g1->insert(n9, n3);
     
-    //                   start
-    //          [5]                 [10] 
-    //    [1]        [2]       [15] [16] [17]
-    //[500] [600]
-     
     g1->DFS(NULL, n9->data);
     g1->BFS(NULL, n7->data);
     
