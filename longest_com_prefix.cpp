@@ -20,7 +20,7 @@
     }
      
     int main() {
-    vector<string> s = {"abcd","ab","abc","abcdefgh"};
-    longest_com_prefix(&s);
-    return 0;
+        vector<string> s = {"abcd","ab","abc","abcdefgh"};
+        longest_com_prefix(&s);
+        return 0;
     }
