@@ -13,7 +13,7 @@ int main() {
   	std::multimap<int,std::string, greater<int>> mymap2;
   	for(auto& x : mymap)
   		mymap2.emplace(x.second, x.first);
-    for (auto& x : mymap2)
+    	for (auto& x : mymap2)
     	cout << x.first << " " << x.second << endl;
 	return 0;
 }
