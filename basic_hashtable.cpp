@@ -7,25 +7,24 @@
     class Hash{
     unordered_map<int, string*> _container;
     public:
-      void put(int key, string& val) {_container[key] = &val;};
-      string* get(int key) {return _container[key];};
-      int count() {return _container.size();};
+      void put(string& val) {int key = ascii(val); _container[key] = &val;}
+      string* get(int key) {return _container[key];}
+    private:
+      int ascii(string& s){
+          int score=0;
+          for(auto& c : s){score += int(c);}
+          return score;
+      }
     };
      
     int main(){
     Hash *my_object = new Hash();
-    int objects=1;
      
-    string s1 = "hello"; my_object->put(1, s1);
-    string s2 = "hello"; my_object->put(2, s2);
-    string s3 = "world"; my_object->put(3, s3);
-    string s4 = "world"; my_object->put(4, s4);
+    string s1 = "abcd"; my_object->put(s1);
+    string s2 = "xyz"; my_object->put(s2);
+    string s3 = "pqr"; my_object->put(s3);
      
-    objects = my_object->count();
-    while(objects>0){
-    	cout << my_object->get(objects) << "\t" << *my_object->get(objects) << endl;
-    	objects--;
-    }
+    cout << my_object->get(394) << "\t" << *my_object->get(394) << endl;
      
     return 0;
     }
