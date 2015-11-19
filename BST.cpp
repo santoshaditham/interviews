@@ -47,7 +47,7 @@ void bst_insert(bst_node* _node, int d){
 
 }
 
-void print_inorder(bst_node* _node){
+void print_preorder(bst_node* _node){
     if(_node->left!=NULL)
         print_inorder(_node->left);
     cout << _node->data << " ";
@@ -63,6 +63,6 @@ int main()
        bst_insert(&bst_root, x);
    }
 
-   print_inorder(&bst_root);
+   print_preorder(&bst_root);
    return 0;
 }
