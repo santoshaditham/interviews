@@ -8,26 +8,26 @@ while keeping the rest of the characters in the original chronological order. */
 #include <queue>
 using namespace std;
 
-void move_spaces(vector<char>* s){
-	queue<int> space_idx;
-	for(int i=0; i < s->size(); i++){
-		if(s->at(i) == ' ') space_idx.push(i);
-		else{
-			if(!space_idx.empty()){
-				s->at(space_idx.front()) = s->at(i);
-				s->at(i) = ' ';
-				space_idx.pop();
-				space_idx.push(i);
-			}
-		}
-	}
+void move_spaces(vector<char>& source){
+  queue<int> space_idx;
+  for(unsigned int i=0; i < source.size(); i++){
+    if(source.at(i) == ' ') space_idx.push(i);
+    else{
+      if(!space_idx.empty()){
+        source.at(space_idx.front()) = source.at(i);
+        source.at(i) = ' ';
+        space_idx.pop();
+        space_idx.push(i);
+      }
+    }
+  }
 }
 
 int main() {
-	vector<char> source = {'h', 'e', ' ', ' ', ' ', 'l', ' ', 'l', ' ', ' ', 'o', '1'};
-	for(auto& x: source) cout << x << " ";
-	cout << endl;
-	move_spaces(&source);
-	for(auto& x: source) cout << x << " ";
-	return 0;
+  vector<char> source = {'h', 'e', ' ', ' ', ' ', 'l', ' ', 'l', ' ', ' ', 'o', '1'};
+  for(auto& x: source) cout << x << " ";
+  cout << endl;
+  move_spaces(source);
+  for(auto& x: source) cout << x << " ";
+  return 0;
 }
