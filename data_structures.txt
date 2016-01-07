@@ -1,0 +1,63 @@
+1)Binary Search Tree
+  left < center > right
+  
+  
+2)Red Black Tree
+  BST
+  balanced
+  root and leaves are black, every path to leaf has same number of blacks
+  good when we have more inserts than searches
+  
+  
+3)AVL Tree
+  BST
+  balanced
+  after every insert, rotate {left left, right right, left right, right left}
+  good when we have more searches than inserts
+  
+  
+4)Heap
+  center > left and right
+  unsorted
+  min or max heaps - good if we need root in O(1)
+  heapify = {}
+  
+  
+5)Trie
+  prefix tree
+         []
+    t           s
+  to   te     so    su
+     tea ted      sum sun
+    
+     
+6)Suffix Tree
+  compressed trie
+  good for longest plaindrome, longest substring, pattern match etc
+  ex: banana = {a, na, ana, nana, anana, banana}
+                  []
+  banana      a         na      []        
+            na  []    na  []
+          na  []     []
+    
+          
+7)Stack/Queue
+
+
+8)Linked Lists
+
+
+9)Map {multimap}
+
+
+10)Unordered_map
+
+
+11)Set
+
+
+12)Graphs
+  bipartite matching
+  max flow
+  ford fulkerson
+  dijkstra
