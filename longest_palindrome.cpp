@@ -7,13 +7,13 @@ using namespace std;
 // we can use a suffix tree - O(nlogn) or Manacher algorithm - O(n) for better time complexity 
 // but neither of them is more space efficient than this method - O(n2) time and O(1) space 
 
-int longestPalindrome(string s, int center_this){
-  int left_this = center_this-1;
-  int right_this = center_this+1;
-  while(s[left_this]==s[right_this]){//palindrome
-    left_this--;right_this++;
+int longestPalindrome(string str, int center){
+  int left = center-1;
+  int right = center+1;
+  while(str[left]==str[right]){//palindrome
+    left--; right++;
   }
-  return right_this-left_this-1;
+  return right-left-1;
 }
 
 int main() {
