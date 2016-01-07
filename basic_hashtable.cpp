@@ -4,13 +4,27 @@
     #include <string>
     using namespace std;
      
-    class Hash{
-    unordered_map<int, string*> _container;
+    class HashTable{
+    unordered_map<int, string> _container;
+    int size;  
     public:
-      void put(string& val) {int key = ascii(val); _container[key] = &val;}
-      string* get(int key) {return _container[key];}
+      HashTable(){
+        size=0;
+      }
+      void put(string val) {
+        int key = ascii(val); 
+        _container[key] = val;
+        size++;
+      }
+      string find(string str) { 
+        int key = ascii(str);
+        return (_container.find(key) == _container.end()) ? str+" - not found!" : str+" - found!";
+      }
+      int getSize() {
+        return size;
+      }
     private:
-      int ascii(string& s){
+      int ascii(string s){
           int score=0;
           for(auto& c : s){score += int(c);}
           return score;
@@ -18,13 +32,11 @@
     };
      
     int main(){
-    Hash *my_object = new Hash();
-     
-    string s1 = "abcd"; my_object->put(s1);
-    string s2 = "xyz"; my_object->put(s2);
-    string s3 = "pqr"; my_object->put(s3);
-     
-    cout << my_object->get(394) << "\t" << *my_object->get(394) << endl;
-     
-    return 0;
+      HashTable *my_hashtable = new HashTable();
+      my_hashtable->put("Hello");
+      my_hashtable->put("World");
+      cout << "Number of elements in hash table : " << my_hashtable->getSize() << endl;
+      cout << my_hashtable->find("Hello") << endl;
+      cout << my_hashtable->find("Helloooooooo") << endl;
+      return 0;
     }
