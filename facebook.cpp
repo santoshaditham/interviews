@@ -8,7 +8,7 @@ int divide(int a, int b){
   if(b==0) return -1;
   if(a < 0 || b < 0) return -1;
   int count=0;
-  while(a>=0){ // worst case O(a) but average case O(log  a) / (log b)
+  while(a>=0){ // worst case O(a) but average case O(log  a)
     a = a-b;
     count++;
   }
@@ -20,7 +20,7 @@ int divide2(int a, int b){
   if(b==0) return -1;
   if(a < 0 || b < 0) return -1;
   int count=0, k=1;
-  while(a >= 0){ // worst case O(a) but average case O(log  a) / (log b)
+  while(a >= 0){ // worst case O(log a) 
     if(a-b*k > 0){ 
       a = a-(b*k);
       count += k;
@@ -36,6 +36,6 @@ int divide2(int a, int b){
 }
 
 int main() {
-  cout << divide2(20, 3);
+  cout << divide(20, 3);
   return 0;
 }
