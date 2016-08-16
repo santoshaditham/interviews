@@ -13,6 +13,7 @@ struct Node{
 	}
 };
 
+//some weird insert function
 void insert(Node* root, int d){
 	Node* temp = new Node(d);
 	if(root==NULL)
