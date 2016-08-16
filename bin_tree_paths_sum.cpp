@@ -24,11 +24,11 @@ Node* insert(Node* root, int d){
 		root = temp;
 		return root;
 	}
-	else if(root->left == NULL){
+	if(root->left == NULL){
 		root->left = temp;
 		return root->left;
 	}
-	else if(root->right == NULL){
+	if(root->right == NULL){
 		root->right = temp;
 		return root->right;
 	}
