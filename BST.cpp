@@ -3,6 +3,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <climits>
 
 using namespace std;
 
@@ -55,6 +56,12 @@ void print_preorder(bst_node* _node){
         print_preorder(_node->right);   
 }
 
+bool is_bst(bst_node* bnode, int min, int max){
+	if(bnode==NULL) return true;
+	if(bnode->data < min || bnode->data > max) return false;
+	return is_bst(bnode->left, min, bnode->data) && is_bst(bnode->right, bnode->data, max);
+}
+
 int main()
 {
    vector<int> input = {1,10,6,4,5};
@@ -64,5 +71,6 @@ int main()
    }
 
    print_preorder(&bst_root);
+   cout << is_bst(&bst_root, INT_MIN, INT_MAX); 
    return 0;
 }
