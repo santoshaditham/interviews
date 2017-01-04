@@ -11,7 +11,17 @@ void print(vector<pair<int, int>> *res){
 		cout << r->first << " " << r->second << endl;
 }
 
-void palindrome_pairs(vector<string> *in){ //check for improvement
+bool isPalindrome(string s){
+	if(s.size()==1 || s.empty()) return true;
+	int i = 0, j = s.size()-1;
+	while(i<j){
+		if(s[i] != s[j]) return false;
+		i++; j--;
+	}
+	return true;
+}
+
+void palindrome_pairs(vector<string> *in){ //check for improvement, currently there are dups in result
 	map<string, int> my_map;
 	vector<pair<int, int>> result;
 	for(int i=0; i<in->size(); i++)
@@ -20,11 +30,19 @@ void palindrome_pairs(vector<string> *in){ //check for improvement
 	for(int i=0; i<in->size(); i++){
 		string rev = in->at(i);
 		reverse(rev.begin(), rev.end());
-		for(int c=0; c<rev.size(); c++){
-			string rev_temp = rev.substr(c);
-			auto it = my_map.find(rev_temp);
-			if(it != my_map.end())
+		//case 1: append at end
+		for(int j=0; j<rev.size(); j++){
+			string temp = rev.substr(j);
+			auto it = my_map.find(temp);
+			if(isPalindrome(in->at(i)+temp) && it != my_map.end())
 				result.push_back({i, it->second});
+		}
+		//case 2: append at begin
+		for(int j=0; j<rev.size(); j++){
+			string temp = rev.substr(0, rev.size() - j);
+			auto it = my_map.find(temp);
+			if(isPalindrome(temp+in->at(i)) && it != my_map.end())
+				result.push_back({it->second, i});
 		}
 	}
 	
