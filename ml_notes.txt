@@ -45,8 +45,45 @@ both used for context based prediction. cbow prefers high frequency word pattern
 
 Collab filtering - item item, user user or user item.
 
-rbm, 
-
 matrix factorization - dim reduction. Like PCA.
 
 svd, pca - dimensionality reduction. PC is direction in which there is most variance.
+
+-------------------------------------------------------------
+
+
+p-value -- hypothesis test that 2 variables follow same distribution (<0.05 means hypothesis is invalid)
+
+cost function = sum (input * weight) + bias
+non-linear activations to excite certain output = sigmoid, softmax, tanh, relu
+optimizer (for a cost function) = adam, sgd, gd, batch gd, momentum, adaptive learning rate 
+gradient descent = which direction towards 0 & how much step to take 
+loss = RMSE (regression) or Cross Validation (classification)
+back prop = weighted sum of previous activations + bias (chain rule)
+learned params = weights & bias
+
+
+high bias in data = underfit
+high variance in data + model learning train data = overfit
+regularization (L1 and L2) of weights, dropout, more train data
+
+
+precision = tp/tp+fp ; recal = tp/tp+fn
+AUC tells fp rate wrt tp rate
+
+
+matrix factorization = dim reduc (non-negative + coordinate descent)
+implicit ALS = alternate between user and item vectors, give weights to event types
+L2 norm for regularization
+confidence calcualtions using imu/umi/filters/popularity
+
+
+FINALLY:
+===============================================
+linear vs logistic - assumptions
+sgd vs gd vs minibatch
+rnn vs lstm - equations
+attention - equations
+decision trees - boosting vs bagging
+clustering - kmeans
+===============================================
