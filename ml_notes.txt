@@ -1,81 +1,74 @@
 Pdf - probability density
 Cdf - cumulative distribution
 Max likelihood - minimize negative log likelihood
+hypothesis tests - statistical significance, p-value
+p-value - hypothesis test that 2 variables follow same distribution (<0.05 means hypothesis is invalid)
+critical regions & confidence intervals
+uniform distribution is in range [-m, m)
+normal distribution has mean +/- variance
+
+ANOVA and Tukey
+ANOVA is to measure if 2 means are different - yes/no. This is given by p-value. If p-value is less than alpha (typically 0.05), then 2 means are different because null hypothesis that both are same is invalid. But bye how much? Use Tukey test which does all pairs comparison.
+
+
+Traditional ML
+==============
 
 linear regression - used for gueustimating the relationship between two variables x and y as accurately as possible. Naturally, there is some error while doing so. Typically, squared error is used to prevent +ve and -ve errors canceling each other out. 
 
 logistic regression - linear regression for classification into multiple output variables where the relation between input and output variables follows a logistic funciton [0,1]. It assumes that log odds of y is linear function of x. Counter parts are - naive bayes, svm, neural nets etc.
 
+random forest vs xgboost (classification)
+Decision trees rely on entropy - which is average of variance.
+Rf is bagging technique, learn individual weak learners & avg. XGboost is boosting technique, learn weak learners in sequence + use weights.
+
 gradient descent - used to minimize the error in predicted output. Depends on math that derivative [or] rate of change of zero means that it is a point of local minima or maxima. Uses a param called learning rate which tells how quickly the algo should learn to converge. 
-
-Back propagation - using derivate to update weights after computing loss/error. Too many layers of back propagation leads to vanishing gradient problem.
-
-Optimization = adam is using momentum. Stochastic GD is compute cost at every step instead of cost for all.
 
 Covariance vs correlation
 Covariance measures the linear relationship between two variables. Neg infinity to Pos infinity. Does not measure the strength of the relationship. Correlation does. Some examples of correlation are Pearson coefficient, euclidian distance coefficient.
 
-ANOVA and Tukey
-ANOVA is to measure if 2 means are different - yes/no. This is given by p-value. If p-value is less than alpha (typically 0.05), then 2 means are different because null hypothesis that both are same is invalid. But bye how much? Use Tukey test which does all pairs comparison.
-
-random forest vs xgboost
-Decision trees rely on entropy - which is average of variance.
-Rf is bagging technique, learn individual weak learners & avg. XGboost is boosting technique, learn weak learners in sequence + use weights.
-
-Activation = sigmoid [0,1] vs tanh[-1,1] vs relu[0,1]
-
 bias variance tradeoff - high bias & underfit; high variance & overfit. So, either remove some of the features [or] use regularization i.e. reduce impact of some of the features. L1 and L2 reg.
+precision = tp/tp+fp ; recal = tp/tp+fn
+AUC tells fp rate wrt tp rate
 
-Loss = KL divergence vs cross-entropy
+Loss = KL divergence, cross-entropy (for classification) [or] RMSE (regression)
+derivative of linear (y=mx+c) gives convex output -> RMSE works  
+but derivative of logistic (negative log sigmoid) isnt convex -> RMSE does not work 
 Entropy is the information you can get from a sample. Negative log probability. Cross entropy is avg entropy size. Divergence is cross entropy - entropy.
-
-hypothesis tests - statistical significance, p-value
-
-critical regions & confidence intervals
 
 Cross validation - k fold, split data in k groups. Train on k-1 groups & test on the kth.
 
 Precision vs Recall (TP/ Actual P) & AUC ROC (TP vs FP). FP = type 1 error. FN = type 2 error.
+
+Collab filtering - item item, user user or user item.
+matrix factorization - dim reduction. Like PCA. dim reduc (non-negative + coordinate descent)
+implicit ALS = alternate between user and item vectors, give weights to event types
+L2 norm for regularization
+confidence calcualtions using imu/umi/filters/popularity
+
+svd, pca - dimensionality reduction. PC is direction in which there is most variance.
+
+
+NEURAL NETWORKS
+===============
+
+cost function = sum (input * weight) + bias
+non-linear activations to excite certain output = sigmoid, softmax, tanh, relu ; sigmoid [0,1] vs tanh[-1,1] vs relu[0,1]
+optimizer (for a cost function) = adam, sgd, gd, batch gd, momentum, adaptive learning rate ; adam is using momentum. Stochastic GD is compute cost at every step instead of cost for all.
+gradient descent = which direction towards 0 & how much step to take 
+loss = RMSE (regression) or Cross Validation (classification)
+back prop = weighted sum of previous activations + bias (chain rule)
+learned params = weights & bias
+
+high bias in data = underfit
+high variance in data + model learning train data = overfit
+regularization (L1 and L2) of weights, dropout, more train data
 
 RNN vs LSTM vs BiLSTM
 rnn predicts next value based on pervious inputs. will suffer from vanishing gradient problem. so save output until last input -- LSTM. To predict a value, look at seq before the value & after the value -- BiLSTM
 
 word2vec cbow vs skipgram
 both used for context based prediction. cbow prefers high frequency word patterns.
-
-Collab filtering - item item, user user or user item.
-
-matrix factorization - dim reduction. Like PCA.
-
-svd, pca - dimensionality reduction. PC is direction in which there is most variance.
-
--------------------------------------------------------------
-
-
-p-value -- hypothesis test that 2 variables follow same distribution (<0.05 means hypothesis is invalid)
-
-cost function = sum (input * weight) + bias
-non-linear activations to excite certain output = sigmoid, softmax, tanh, relu
-optimizer (for a cost function) = adam, sgd, gd, batch gd, momentum, adaptive learning rate 
-gradient descent = which direction towards 0 & how much step to take 
-loss = RMSE (regression) or Cross Validation (classification)
-back prop = weighted sum of previous activations + bias (chain rule)
-learned params = weights & bias
-
-
-high bias in data = underfit
-high variance in data + model learning train data = overfit
-regularization (L1 and L2) of weights, dropout, more train data
-
-
-precision = tp/tp+fp ; recal = tp/tp+fn
-AUC tells fp rate wrt tp rate
-
-
-matrix factorization = dim reduc (non-negative + coordinate descent)
-implicit ALS = alternate between user and item vectors, give weights to event types
-L2 norm for regularization
-confidence calcualtions using imu/umi/filters/popularity
 
 
 FINALLY:
