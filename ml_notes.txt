@@ -10,6 +10,8 @@ normal distribution has mean +/- variance
 ANOVA and Tukey
 ANOVA is to measure if 2 means are different - yes/no. This is given by p-value. If p-value is less than alpha (typically 0.05), then 2 means are different because null hypothesis that both are same is invalid. But bye how much? Use Tukey test which does all pairs comparison.
 
+Chi square test = Sigma (y-y')2/y' --> to measure if variance in output is due to input or not
+
 
 Traditional ML
 ==============
@@ -19,8 +21,11 @@ linear regression - used for gueustimating the relationship between two variable
 logistic regression - linear regression for classification into multiple output variables where the relation between input and output variables follows a logistic funciton [0,1]. It assumes that log odds of y is linear function of x. Counter parts are - naive bayes, svm, neural nets etc.
 
 random forest vs xgboost (classification)
-Decision trees rely on entropy - which is average of variance.
-Rf is bagging technique, learn individual weak learners & avg. XGboost is boosting technique, learn weak learners in sequence + use weights.
+Decision trees rely on entropy which is average of variance - they calculate info gain, gini index - use chi square test.
+Entropy is the information you can get from a sample. Negative log probability. 
+Cross entropy is avg entropy size. Divergence is cross entropy - entropy.
+Rf is bagging technique, learn individual weak learners & avg. 
+XGboost is boosting technique, learn weak learners in sequence + use weights.
 
 gradient descent - used to minimize the error in predicted output. Depends on math that derivative [or] rate of change of zero means that it is a point of local minima or maxima. Uses a param called learning rate which tells how quickly the algo should learn to converge. 
 
@@ -34,7 +39,7 @@ AUC tells fp rate wrt tp rate
 Loss = KL divergence, cross-entropy (for classification) [or] RMSE (regression)
 derivative of linear (y=mx+c) gives convex output -> RMSE works  
 but derivative of logistic (negative log sigmoid) isnt convex -> RMSE does not work 
-Entropy is the information you can get from a sample. Negative log probability. Cross entropy is avg entropy size. Divergence is cross entropy - entropy.
+
 
 Cross validation - k fold, split data in k groups. Train on k-1 groups & test on the kth.
 
