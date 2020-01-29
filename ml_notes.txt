@@ -2,7 +2,7 @@ Pdf - probability density
 Cdf - cumulative distribution
 Max likelihood - minimize negative log likelihood
 hypothesis tests - statistical significance, p-value
-p-value - hypothesis test that 2 variables follow same distribution (<0.05 means hypothesis is invalid)
+p-value - hypothesis test that 2 variables follow same distribution (<0.05 means null hypothesis is invalid)
 critical regions & confidence intervals
 uniform distribution is in range [-m, m)
 normal distribution has mean +/- variance
@@ -33,25 +33,33 @@ Covariance vs correlation
 Covariance measures the linear relationship between two variables. Neg infinity to Pos infinity. Does not measure the strength of the relationship. Correlation does. Some examples of correlation are Pearson coefficient, euclidian distance coefficient.
 
 bias variance tradeoff - high bias & underfit; high variance & overfit. So, either remove some of the features [or] use regularization i.e. reduce impact of some of the features. L1 and L2 reg.
-precision = tp/tp+fp ; recal = tp/tp+fn
-AUC tells fp rate wrt tp rate
+
 
 Loss = KL divergence, cross-entropy (for classification) [or] RMSE (regression)
 derivative of linear (y=mx+c) gives convex output -> RMSE works  
 but derivative of logistic (negative log sigmoid) isnt convex -> RMSE does not work 
+Listwise, Pairwise & Pointwise loss calculation --> maybe even use Triplet loss
 
 
 Cross validation - k fold, split data in k groups. Train on k-1 groups & test on the kth.
-
 Precision vs Recall (TP/ Actual P) & AUC ROC (TP vs FP). FP = type 1 error. FN = type 2 error.
+AUC ROC curve (between FP rate and TP rate)
+precision = tp/tp+fp ; recal = tp/tp+fn
+AUC tells fp rate wrt tp rate
+
 
 Collab filtering - item item, user user or user item.
 matrix factorization - dim reduction. Like PCA. dim reduc (non-negative + coordinate descent)
+Eigen values, Eigen vectors - when linear transforming data to lower dim, eigen value is best multiplier
 implicit ALS = alternate between user and item vectors, give weights to event types
 L2 norm for regularization
 confidence calcualtions using imu/umi/filters/popularity
 
+
 svd, pca - dimensionality reduction. PC is direction in which there is most variance.
+
+
+Naiver Bayes - probabilistic classification model that assumes features are independent.
 
 
 NEURAL NETWORKS
