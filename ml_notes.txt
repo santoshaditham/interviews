@@ -60,6 +60,11 @@ svd, pca - dimensionality reduction. PC is direction in which there is most vari
 
 
 Naiver Bayes - probabilistic classification model that assumes features are independent.
+P(x|y) = P(y|x).P(x) / P(y)
+
+Kmeans - pick k ; randomly select k points in data ; 
+compute all distances ; assign to nearest clusters ; 
+compute variance of cluster ; do repeatedly ; plot elbow curve
 
 
 NEURAL NETWORKS
