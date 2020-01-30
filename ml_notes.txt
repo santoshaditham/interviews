@@ -89,12 +89,9 @@ word2vec cbow vs skipgram
 both used for context based prediction. cbow prefers high frequency word patterns.
 
 
-FINALLY:
+TRICKY:
 ===============================================
 linear vs logistic - assumptions
-sgd vs gd vs minibatch
 rnn vs lstm - equations
 attention - equations
-decision trees - boosting vs bagging
-clustering - kmeans
 ===============================================
