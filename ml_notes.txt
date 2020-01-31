@@ -86,7 +86,7 @@ loss = RMSE (regression) or Cross Entropy (classification)
 back prop = weighted sum of previous activations + bias (chain rule)
 learned params = weights & bias
 
-high bias in data = underfit
+high bias in model = underfit
 high variance in data + model learning train data = overfit
 regularization (L1 and L2) of weights, dropout, more train data
 
