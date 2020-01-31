@@ -1,7 +1,5 @@
 Pdf - probability density for a continuous random variable P(x-e < X < x+e)
 Cdf - cumulative distribution - probability upto a particular value of the random variable P(X<=x)
-
-Max likelihood - minimize negative log likelihood
 hypothesis tests - statistical significance, p-value
 p-value - hypothesis test that 2 variables follow same distribution (<0.05 means null hypothesis is invalid)
 critical regions & confidence intervals
@@ -19,7 +17,13 @@ Traditional ML
 
 linear regression - used for gueustimating the relationship between two variables x and y as accurately as possible. Naturally, there is some error while doing so. Typically, squared error is used to prevent +ve and -ve errors canceling each other out. 
 
+y = mx+c
+
 logistic regression - linear regression for classification into multiple output variables where the relation between input and output variables follows a logistic funciton [0,1]. It assumes that log odds of y is linear function of x. Counter parts are - naive bayes, svm, neural nets etc.
+
+log(y/1-y) = mx+c --> y = ez / 1 + ez
+
+To calc max likelihood = minimize negative log likelihood
 
 random forest vs xgboost (classification)
 Decision trees rely on entropy which is average of variance - they calculate info gain, gini index - use chi square test.
