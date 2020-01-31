@@ -18,7 +18,7 @@ Traditional ML
 
 linear regression - used for gueustimating the relationship between two variables x and y as accurately as possible. Naturally, there is some error while doing so. Typically, squared error is used to prevent +ve and -ve errors canceling each other out. 
 
-y = mx+c
+y = mx+c = weight*x + bias
 
 logistic regression - linear regression for classification into multiple output variables where the relation between input and output variables follows a logistic funciton [0,1]. It assumes that log odds of y is linear function of x. Counter parts are - naive bayes, svm, neural nets etc.
 
