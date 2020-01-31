@@ -82,7 +82,7 @@ cost function = sum (input * weight) + bias
 non-linear activations to excite certain output = sigmoid, softmax, tanh, relu ; sigmoid [0,1] vs tanh[-1,1] vs relu[0,1]
 optimizer (for a cost function) = adam, sgd, gd, batch gd, momentum, adaptive learning rate ; adam is using momentum. Stochastic GD is compute cost at every step instead of cost for all.
 gradient descent = which direction towards 0 & how much step to take 
-loss = RMSE (regression) or Cross Validation (classification)
+loss = RMSE (regression) or Cross Entropy (classification)
 back prop = weighted sum of previous activations + bias (chain rule)
 learned params = weights & bias
 
@@ -100,12 +100,19 @@ Attention -
 	compare with neighborhood
 	weighted combo (matmul)
 	summarize (add) & give it to FFNN
+Encode-Decoder -
+	encoder goes thru time steps & puts everything to context
+	decoder starts with a context vector and generates next time steps
+	attention lets you focus on some of the many time steps
 
 RNN vs LSTM vs BiLSTM
 rnn predicts next value based on pervious inputs. will suffer from vanishing gradient problem. so save output until last input -- LSTM. To predict a value, look at seq before the value & after the value -- BiLSTM
 
 word2vec cbow vs skipgram
-both used for context based prediction. cbow prefers high frequency word patterns.
+both used for context based prediction. cbow prefers high frequency word patterns & it is faster.
+
+NLP -
+Tfidf, LSA, stopwords, stemming, lemmatization
 
 
 TRICKY:
