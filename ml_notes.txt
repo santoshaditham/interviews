@@ -11,6 +11,7 @@ ANOVA is to measure if 2 means are different - yes/no. This is given by p-value.
 
 Chi square test = Sigma (y-y')2/y' --> to measure if variance in output is due to input or not
 
+ARIMA is simple time series forecasting technique
 
 Traditional ML
 ==============
@@ -88,6 +89,17 @@ learned params = weights & bias
 high bias in data = underfit
 high variance in data + model learning train data = overfit
 regularization (L1 and L2) of weights, dropout, more train data
+
+variable length time-series data
+RNN, LSTM, GRU - 
+	continuous representation of everything so far
+	RNN has vanishing gradient problem
+	LSTM, GRU use sigmoid & tanh gates to remember/forget stuff 
+	cannot parallelize
+Attention - 
+	compare with neighborhood
+	weighted combo (matmul)
+	summarize (add) & give it to FFNN
 
 RNN vs LSTM vs BiLSTM
 rnn predicts next value based on pervious inputs. will suffer from vanishing gradient problem. so save output until last input -- LSTM. To predict a value, look at seq before the value & after the value -- BiLSTM
