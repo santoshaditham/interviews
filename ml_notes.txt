@@ -5,11 +5,19 @@ p-value - hypothesis test that 2 variables follow same distribution (<0.05 means
 critical regions & confidence intervals
 uniform distribution is in range [-m, m)
 normal distribution has mean +/- variance
+if we take multiple data streams, we can calc mean of means, std of means - later is called std error
 
 ANOVA and Tukey
 ANOVA is to measure if 2 means are different - yes/no. This is given by p-value. If p-value is less than alpha (typically 0.05), then 2 means are different because null hypothesis that both are same is invalid. But bye how much? Use Tukey test which does all pairs comparison.
 
 Chi square test = Sigma (y-y')2/y' --> to measure if variance in output is due to input or not
+
+If two independent distributions X and Y & we want to check if point z is from X or Y
+assume X , Y are all from indpendent normal distributions - p(X), p(Y) is given
+p(zEX|X) = p(X|zEX).p(z) / P(X)
+p(zEY|Y) = p(Y|zEX).p(z) / P(Y)
+P(z) = p(z|X).p(X) + p(z|Y).p(Y) 
+P(X and Y) = P(X) + P(Y) + P(X or Y)
 
 ARIMA is simple time series forecasting technique
 
@@ -67,8 +75,9 @@ confidence calcualtions using imu/umi/filters/popularity
 svd, pca - dimensionality reduction. PC is direction in which there is most variance.
 
 
-Naiver Bayes - probabilistic classification model that assumes features are independent.
+Naive Bayes - probabilistic classification model that assumes features are independent.
 P(x|y) = P(y|x).P(x) / P(y)
+
 
 Kmeans - pick k ; randomly select k points in data ; 
 compute all distances ; assign to nearest clusters ; 
