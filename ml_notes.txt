@@ -124,6 +124,25 @@ NLP -
 Tfidf, LSA, stopwords, stemming, lemmatization
 
 
+Production Pipeline
+===================
+Nightly builds
+	Spark data load
+	PySpark preprocess
+	Python model / Pytorch model
+	Argo workflow manager (kubeflow)
+	GCP serve
+Real-time serve
+	JSON request (userid, pid)
+	Cached embeddings (userid, pid)
+	## Redis / memcached data stores
+	Big table querying (row, col, data)
+	Cached model inference
+	Cached candidates from stage 1 model
+	Rerank (numpy.dot)
+	GCP serve
+
+
 TRICKY:
 ===============================================
 linear vs logistic - assumptions
