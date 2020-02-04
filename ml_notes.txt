@@ -106,8 +106,9 @@ RNN, LSTM, GRU -
 	LSTM, GRU use sigmoid & tanh gates to remember/forget stuff 
 	cannot parallelize
 Attention - 
-	compare with neighborhood
-	weighted combo (matmul)
+	compare with neighborhood to find which are important
+	do matmul between embeddings and decider (say position)
+	softmax to get areas of focus (multi class)
 	summarize (add) & give it to FFNN
 Encode-Decoder -
 	encoder goes thru time steps & puts everything to context
