@@ -34,6 +34,16 @@ log(y/1-y) = mx+c --> y = ez / 1 + ez
 
 To calc max likelihood = minimize negative log likelihood
 
+
+Naive Bayes - probabilistic classification model that assumes features are independent.
+P(x|y) = P(y|x).P(x) / P(y)
+
+
+Kmeans - pick k ; randomly select k points in data ; 
+compute all distances ; assign to nearest clusters ; 
+compute variance of cluster ; do repeatedly ; plot elbow curve
+
+
 random forest vs xgboost (classification)
 Decision trees rely on entropy which is average of variance - they calculate info gain, gini index - use chi square test.
 Entropy is the information you can get from a sample. Negative log probability. 
@@ -62,6 +72,9 @@ precision = tp/tp+fp ; recal = tp/tp+fn
 AUC tells fp rate wrt tp rate
 
 
+svd, pca - dimensionality reduction. PC is direction in which there is most variance.
+
+
 Collab filtering - item item, user user or user item.
 matrix factorization - dim reduction. Like PCA. dim reduc (non-negative + coordinate descent)
 Eigen values, Eigen vectors - when linear transforming data to lower dim, eigen value is best multiplier such that
@@ -71,17 +84,8 @@ implicit ALS = alternate between user and item vectors, give weights to event ty
 L2 norm for regularization
 confidence calcualtions using imu/umi/filters/popularity
 
-
-svd, pca - dimensionality reduction. PC is direction in which there is most variance.
-
-
-Naive Bayes - probabilistic classification model that assumes features are independent.
-P(x|y) = P(y|x).P(x) / P(y)
-
-
-Kmeans - pick k ; randomly select k points in data ; 
-compute all distances ; assign to nearest clusters ; 
-compute variance of cluster ; do repeatedly ; plot elbow curve
+Ranking metrics -- NDCG, MAP, Reciprocal Rank
+Char metrics -- Inverse Propensity
 
 
 NEURAL NETWORKS
@@ -146,7 +150,8 @@ Real-time serve
 
 TRICKY:
 ===============================================
-linear vs logistic - assumptions
+linear vs logistic - colinearity assumptions
 rnn vs lstm - equations
 attention - equations
+Given 2 distribution & value, which distr does value belong to?
 ===============================================
