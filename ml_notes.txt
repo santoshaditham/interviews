@@ -32,7 +32,10 @@ logistic regression - linear regression for classification into multiple output 
 
 log(y/1-y) = mx+c --> y = ez / 1 + ez
 
+
 To calc max likelihood = minimize negative log likelihood
+Entropy is the information you can get from a sample. Negative log probability. 
+Cross entropy is avg entropy size. Divergence is cross entropy - entropy.
 
 
 Naive Bayes - probabilistic classification model that assumes features are independent.
@@ -45,11 +48,18 @@ compute variance of cluster ; do repeatedly ; plot elbow curve
 
 
 random forest vs xgboost (classification)
+Bootstapping is randomly selecting data from raw
 Decision trees rely on entropy which is average of variance - they calculate info gain, gini index - use chi square test.
-Entropy is the information you can get from a sample. Negative log probability. 
-Cross entropy is avg entropy size. Divergence is cross entropy - entropy.
 Rf is bagging technique, learn individual weak learners & avg. 
+	Build bunch of decision trees for randomly picked features & combine results
+	Check out of bag accuracy 
+	Increase / Decrease number of picked features & do again
+	Missing data for features need to be guessed
 XGboost is boosting technique, learn weak learners in sequence + use weights.
+	Start with a random leaf & build RESIDUAL tree
+	Each tree is small (say 4)
+	Calculate predictions using learning rate
+	Continue building chain of trees
 
 gradient descent - used to minimize the error in predicted output. Depends on math that derivative [or] rate of change of zero means that it is a point of local minima or maxima. Uses a param called learning rate which tells how quickly the algo should learn to converge. 
 
