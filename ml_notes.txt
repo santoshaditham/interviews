@@ -48,7 +48,7 @@ compute all distances ; assign to nearest clusters ;
 compute variance of cluster ; do repeatedly ; plot elbow curve
 
 
-random forest vs xgboost (classification)
+random forest vs xgboost (classification and/or regression)
 Bootstapping is randomly selecting data from raw
 Decision trees rely on entropy which is average of variance - they calculate info gain, gini index - use chi square test.
 Rf is bagging technique, learn individual weak learners & avg. 
