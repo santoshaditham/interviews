@@ -122,9 +122,15 @@ loss = RMSE (regression) or Cross Entropy (classification)
 back prop = weighted sum of previous activations + bias (chain rule)
 learned params = weights & bias
 
+
 high bias in model = underfit
 high variance in data + model learning train data = overfit
 regularization (L1 and L2) of weights, dropout, more train data (maybe add noise)
+
+
+momentum = direction in which SGD should keep going, based on previous directions
+learning rate = size of the step to take (can be adaptive)
+
 
 variable length time-series data
 RNN, LSTM, GRU - 
