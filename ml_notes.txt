@@ -52,15 +52,20 @@ random forest vs xgboost (classification)
 Bootstapping is randomly selecting data from raw
 Decision trees rely on entropy which is average of variance - they calculate info gain, gini index - use chi square test.
 Rf is bagging technique, learn individual weak learners & avg. 
-	Build bunch of decision trees for randomly picked features & combine results
-	Check out of bag accuracy 
+	Build bunch of decision trees for randomly picked features from randomly picked data (bootstrap)
 	Increase / Decrease number of picked features & do again
+	Aggregate the results from all trees to finalize
+	Check out of bag data accuracy (look at all trees) 
 	Missing data for features need to be guessed
 XGboost is boosting technique, learn weak learners in sequence + use weights.
-	Start with a random leaf & build RESIDUAL tree
-	Each tree is small (say 4)
-	Calculate predictions using learning rate
-	Continue building chain of trees
+	Start with a random leaf & build RESIDUAL/ERROR tree
+	Continue building CHAIN of trees (more features)
+	Each tree is small (say 4) + Combine values by averaging features
+	Calculate predictions using learning rate (avoid overfit)
+	
+	
+Trees can use data as is ; DL needs data to be transformed into meaningful space --> what is impact?
+	
 
 gradient descent - used to minimize the error in predicted output. Depends on math that derivative [or] rate of change of zero means that it is a point of local minima or maxima. Uses a param called learning rate which tells how quickly the algo should learn to converge. 
 
@@ -164,5 +169,6 @@ TRICKY:
 linear vs logistic - colinearity assumptions
 rnn vs lstm - equations
 attention - equations
+How to add noise to data to avoid overfit?
 Given 2 distribution & value, which distr does value belong to?
 ===============================================
