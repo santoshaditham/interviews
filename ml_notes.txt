@@ -43,9 +43,13 @@ Naive Bayes - probabilistic classification model that assumes features are indep
 P(x|y) = P(y|x).P(x) / P(y)
 
 
-Kmeans - pick k ; randomly select k points in data ; 
-compute all distances ; assign to nearest clusters ; 
+Kmeans (unsupervised) - assign k labels to data at random ;
+compute centroid for each cluster ; re-assign data to centroids based on distance ;
 compute variance of cluster ; do repeatedly ; plot elbow curve
+
+
+KNN (supervised) - have data with labels ; get new unlabeled data ; measure distances ;
+pick top k labeled data ; give new label based on max of top k
 
 
 random forest vs xgboost (classification and/or regression)
