@@ -104,7 +104,7 @@ Distance - eucledian, dot product, cosine similarity etc
 dot product is angle & magnitude. cosine is angle only (norm of magnitude)
 
 Ranking metrics -- NDCG, MAP, Reciprocal Rank
-Char metrics -- Inverse Propensity
+Char metrics -- Inverse Propensity, Diversity / Coverage, Serendipity (surprise factor) / Novelty
 
 
 NEURAL NETWORKS
