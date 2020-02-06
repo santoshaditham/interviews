@@ -100,6 +100,9 @@ implicit ALS = alternate between user and item vectors, give weights to event ty
 L2 norm for regularization
 confidence calcualtions using imu/umi/filters/popularity
 
+Distance - eucledian, dot product, cosine similarity etc
+dot product is angle & magnitude. cosine is angle only (norm of magnitude)
+
 Ranking metrics -- NDCG, MAP, Reciprocal Rank
 Char metrics -- Inverse Propensity
 
