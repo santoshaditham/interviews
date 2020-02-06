@@ -120,7 +120,7 @@ learned params = weights & bias
 
 high bias in model = underfit
 high variance in data + model learning train data = overfit
-regularization (L1 and L2) of weights, dropout, more train data
+regularization (L1 and L2) of weights, dropout, more train data (maybe add noise)
 
 variable length time-series data
 RNN, LSTM, GRU - 
