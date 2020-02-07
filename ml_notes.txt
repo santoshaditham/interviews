@@ -9,7 +9,9 @@ if we take multiple data streams (population), we can calc mean of means, std of
 central limit theorem - frequency plots of means will be normal distribution, lesser std if more means
 
 ANOVA and Tukey
-ANOVA is to measure if 2 means are different - yes/no. This is given by p-value. If p-value is less than alpha (typically 0.05), then 2 means are different because null hypothesis that both are same is invalid. But bye how much? Use Tukey test which does all pairs comparison.
+ANOVA is to measure if 2 means are different - yes/no. This is given by p-value. 
+If p-value is less than alpha (typically 0.05), then 2 means are different because null hypothesis that both are same is invalid. 
+But by how much? Use Tukey test which does all pairs comparison.
 
 Chi square test = Sigma (y-y')2/y' --> to measure if variance in output is due to input or not
 
@@ -25,24 +27,6 @@ ARIMA is simple time series forecasting technique
 Traditional ML
 ==============
 
-linear regression - used for gueustimating the relationship between two variables x and y as accurately as possible. Naturally, there is some error while doing so. Typically, squared error is used to prevent +ve and -ve errors canceling each other out. 
-
-y = mx+c = weight*x + bias
-
-logistic regression - linear regression for classification into multiple output variables where the relation between input and output variables follows a logistic funciton [0,1]. It assumes that log odds of y is linear function of x. Counter parts are - naive bayes, svm, neural nets etc.
-
-log(y/1-y) = mx+c --> y = ez / 1 + ez
-
-
-To calc max likelihood = minimize negative log likelihood
-Entropy is the information you can get from a sample. Negative log probability. 
-Cross entropy is avg entropy size. Divergence is cross entropy - entropy.
-
-
-Naive Bayes - probabilistic classification model that assumes features are independent.
-P(x|y) = P(y|x).P(x) / P(y)
-
-
 Kmeans (unsupervised) - assign k labels to data at random ;
 compute centroid for each cluster ; re-assign data to centroids based on distance ;
 compute variance of cluster ; do repeatedly ; plot elbow curve
@@ -52,6 +36,33 @@ KNN (supervised) - have data with labels ; get new unlabeled data ; measure dist
 pick top k labeled data ; give new label based on max of top k
 
 
+linear regression - used for gueustimating the relationship between two variables x and y as accurately as possible. 
+Naturally, there is some error while doing so. Typically, RMSE is used to prevent +ve, -ve errors canceling each other out. 
+
+y = mx+c = weight*x + bias
+
+logistic regression - for classification into multiple output variables where the relation between input and output variables follows a logistic funciton [0,1]. 
+It assumes that log odds of y is linear function of x. Counter parts are - naive bayes, svm, neural nets etc.
+
+log(y/1-y) = mx+c
+y = ez / 1 + ez
+
+
+To calc max likelihood = minimize negative log likelihood
+Loss = KL divergence, cross-entropy (for classification) [or] RMSE (regression)
+Entropy = Negative log probability. 
+Cross entropy is avg entropy size. 
+Divergence is (cross entropy - entropy).
+derivative of linear (y=mx+c) gives convex output -> RMSE works  
+but derivative of logistic (negative log sigmoid) isnt convex -> RMSE does not work 
+
+Listwise, Pairwise & Pointwise loss calculation --> maybe even use Triplet loss
+
+
+Naive Bayes - probabilistic classification model that assumes features are independent.
+P(x|y) = P(y|x).P(x) / P(y)
+
+
 random forest vs xgboost (classification and/or regression)
 Bootstapping is randomly selecting data from raw
 Decision trees rely on entropy which is average of variance - they calculate info gain, gini index - use chi square test.
@@ -59,7 +70,7 @@ Rf is bagging technique, learn individual weak learners & avg.
 	Build bunch of decision trees for randomly picked features from randomly picked data (bootstrap)
 	Increase / Decrease number of picked features & do again
 	Aggregate the results from all trees to finalize
-	Check out of bag data accuracy (look at all trees) 
+	Check out-of-bag data accuracy (look at all trees) 
 	Missing data for features need to be guessed
 XGboost is boosting technique, learn weak learners in sequence + use weights.
 	Start with a random leaf & build RESIDUAL/ERROR tree
@@ -71,23 +82,28 @@ XGboost is boosting technique, learn weak learners in sequence + use weights.
 Trees can use data as is ; DL needs data to be transformed into meaningful space --> what is impact?
 	
 
-gradient descent - used to minimize the error in predicted output. Depends on math that derivative [or] rate of change of zero means that it is a point of local minima or maxima. Uses a param called learning rate which tells how quickly the algo should learn to converge. 
+gradient descent - used to minimize the error in predicted output. 
+Depends on math that derivative [or] rate of change of zero means that it is a point of local minima or maxima. 
+Uses a param called learning rate which tells how quickly the algo should learn to converge. 
+momentum = direction in which GD should keep going, based on previous directions
+learning rate = size of the step to take (can be adaptive)
+
 
 Covariance vs correlation
-Covariance measures the linear relationship between two variables. Neg infinity to Pos infinity. Does not measure the strength of the relationship. Correlation does. Some examples of correlation are Pearson coefficient, euclidian distance coefficient.
+Covariance measures the linear relationship between two variables. Neg infinity to Pos infinity. 
+Does not measure the strength of the relationship. Correlation does. 
+Some examples of correlation are Pearson coefficient, euclidian distance coefficient.
 
-bias variance tradeoff - high bias & underfit; high variance & overfit. So, either remove some of the features [or] use regularization i.e. reduce impact of some of the features. L1 and L2 reg.
 
-
-Loss = KL divergence, cross-entropy (for classification) [or] RMSE (regression)
-derivative of linear (y=mx+c) gives convex output -> RMSE works  
-but derivative of logistic (negative log sigmoid) isnt convex -> RMSE does not work 
-Listwise, Pairwise & Pointwise loss calculation --> maybe even use Triplet loss
+bias variance tradeoff - high bias & underfit; high variance & overfit. 
+So, either remove some of the features [or] 
+use regularization i.e. reduce impact of some of the features. L1 and L2 reg. [or]
+give more data to model
 
 
 Cross validation - k fold, split data in k groups. Train on k-1 groups & test on the kth.
 Precision vs Recall (TP/ Actual P) & AUC ROC (TP vs FP). FP = type 1 error. FN = type 2 error.
-AUC ROC curve (between FP rate and TP rate)
+AUC ROC curve (between FP rate and TP rate) can also be (between FP rate and Precision)
 precision = tp/tp+fp ; recal = tp/tp+fn
 AUC tells fp rate wrt tp rate
 
@@ -116,11 +132,13 @@ NEURAL NETWORKS
 
 cost function = sum (input * weight) + bias
 non-linear activations to excite certain output = sigmoid, softmax, tanh, relu ; sigmoid [0,1] vs tanh[-1,1] vs relu[0,1]
-optimizer (for a cost function) = adam, sgd, gd, batch gd, momentum, adaptive learning rate ; adam is using momentum. Stochastic GD is compute cost at every step instead of cost for all.
 gradient descent = which direction towards 0 & how much step to take 
+optimizer (for a cost function) = adam, sgd, gd, batch gd, momentum, adaptive learning rate ; 
+	Adam is using momentum. 
+	Stochastic GD is compute cost at every step instead of cost for all.
 loss = RMSE (regression) or Cross Entropy (classification)
 back prop = weighted sum of previous activations + bias (chain rule)
-learned params = weights & bias
+learned params = weights & bias (both can have noise added to them to avoid overfit)
 
 
 high bias in model = underfit
@@ -128,15 +146,12 @@ high variance in data + model learning train data = overfit
 regularization (L1 and L2) of weights, dropout, more train data (maybe add noise)
 
 
-momentum = direction in which SGD should keep going, based on previous directions
-learning rate = size of the step to take (can be adaptive)
-
-
 variable length time-series data
 RNN, LSTM, GRU - 
 	continuous representation of everything so far
-	RNN has vanishing gradient problem
+	RNN has vanishing gradient problem when sequence is too long
 	LSTM, GRU use sigmoid & tanh gates to remember/forget stuff 
+	To predict a value, look at seq before the value & after the value -- BiLSTM
 	cannot parallelize
 Attention - 
 	compare with neighborhood to find which are important
@@ -144,12 +159,10 @@ Attention -
 	softmax to get areas of focus (multi class)
 	summarize (add) & give it to FFNN
 Encode-Decoder -
-	encoder goes thru time steps & puts everything to context
+	encoder goes thru time steps & puts everything to context vector
 	decoder starts with a context vector and generates next time steps
 	attention lets you focus on some of the many time steps
 
-RNN vs LSTM vs BiLSTM
-rnn predicts next value based on pervious inputs. will suffer from vanishing gradient problem. so save output until last input -- LSTM. To predict a value, look at seq before the value & after the value -- BiLSTM
 
 word2vec cbow vs skipgram
 both used for context based prediction. cbow prefers high frequency word patterns & it is faster.
