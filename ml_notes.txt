@@ -101,6 +101,7 @@ use regularization i.e. reduce impact of some of the features. L1 and L2 reg. [o
 give more data to model
 
 
+Make sure to feature engineer on TRAIN data, not ALL data
 Cross validation - k fold, split data in k groups. Train on k-1 groups & test on the kth.
 Precision vs Recall (TP/ Actual P) & AUC ROC (TP vs FP). FP = type 1 error. FN = type 2 error.
 AUC ROC curve (between FP rate and TP rate) can also be (between FP rate and Precision)
