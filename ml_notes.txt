@@ -7,6 +7,7 @@ uniform distribution is in range [-m, m)
 normal distribution has mean +/- variance
 if we take multiple data streams (population), we can calc mean of means, std of means - later is called std error
 central limit theorem - frequency plots of means will be normal distribution, lesser std if more means
+people use CLT for bootstrapping
 
 ANOVA and Tukey
 ANOVA is to measure if 2 means are different - yes/no. This is given by p-value. 
