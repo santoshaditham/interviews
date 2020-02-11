@@ -74,8 +74,9 @@ Rf is bagging technique, learn individual weak learners & avg.
 	Missing data for features need to be guessed
 XGboost is boosting technique, learn weak learners in sequence + use weights.
 	Start with a random leaf & build RESIDUAL/ERROR tree
-	Continue building CHAIN of trees (more features)
-	Each tree is small (say 4) + Combine values by averaging features
+	Continue building CHAIN of residual trees (more features)
+	Each tree is small (say 4) 
+	Combine values by averaging features (regression) / log odds (classification)
 	Calculate predictions using learning rate (avoid overfit)
 	
 	
