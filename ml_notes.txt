@@ -150,7 +150,12 @@ regularization (L1 and L2) of weights, dropout, more train data (maybe add noise
 
 
 variable length time-series data
+HMM -
+	linear model to predict sequences using prior probabilities & state machines
+	good when next state depends only on previous state
+	very simple model compared to DL
 RNN, LSTM, GRU - 
+	non-linear models
 	continuous representation of everything so far
 	RNN has vanishing gradient problem when sequence is too long
 	LSTM, GRU use sigmoid & tanh gates to remember/forget stuff 
