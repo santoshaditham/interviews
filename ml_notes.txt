@@ -1,3 +1,6 @@
+BASIC PROBABILITY
+=================
+
 Pdf - probability density for a continuous random variable P(x-e < X < x+e)
 Cdf - cumulative distribution - probability upto a particular value of the random variable P(X<=x)
 hypothesis tests - statistical significance, p-value
@@ -5,14 +8,15 @@ p-value - hypothesis test that verifies if observation is purely by chance (<0.0
 critical regions & confidence intervals
 uniform distribution is in range [-m, m)
 normal distribution has mean +/- variance
-if we take multiple data streams (population), we can calc mean of means, std of means - later is called std error
-central limit theorem - frequency plots of means will be normal distribution, lesser std if more means
-people use CLT for bootstrapping & variance tests (instead of raw data)
+std error - if we take multiple data samples from population, we can calc std of means
+central limit theorem (CLT) - frequency plots of means will be normal distribution, lesser std if more means
 
-ANOVA and Tukey
+
+ANOVA and Tukey (assume student t distribution)
 ANOVA is to measure if 2 means are different - yes/no. This is given by p-value. 
-If p-value is less than alpha (typically 0.05), then 2 means are different because null hypothesis that both are same is invalid. 
-But by how much? Use Tukey test which does all pairs comparison.
+If p-value is less than alpha (typically 0.05), then 2 means are different because null hypothesis that both are same is invalid. But by how much? Use Tukey test which does all pairs comparison.
+
+dont want to use raw data, then use CLT for bootstrapping & variance tests 
 
 Chi square test = Sigma (y-y')2/y' --> to measure if variance in output is due to input or not
 
@@ -24,6 +28,13 @@ P(z) = p(z|X).p(X) + p(z|Y).p(Y)
 P(X and Y) = P(X) + P(Y) + P(X or Y)
 
 ARIMA is simple time series forecasting technique
+
+DATA MINING
+===========
+
+Apriori - scan db multiple times to find patterns based on counts
+FP growth - scan db twice to build tree of paths + counts
+
 
 Traditional ML
 ==============
@@ -37,6 +48,15 @@ KNN (supervised) - have data with labels ; get new unlabeled data ; measure dist
 pick top k labeled data ; give new label based on max of top k
 
 
+SVM (support vector machines) -
+
+
+HMM (Hidden Markov Models) for variable length time-series data -
+	linear model to predict sequences using prior probabilities & state machines
+	good when next state depends only on previous state
+	very simple model compared to DL
+	
+	
 linear regression - used for gueustimating the relationship between two variables x and y as accurately as possible. 
 Naturally, there is some error while doing so. Typically, RMSE is used to prevent +ve, -ve errors canceling each other out. 
 
@@ -149,11 +169,7 @@ high variance in data + model learning train data = overfit
 regularization (L1 and L2) of weights, dropout, more train data (maybe add noise)
 
 
-variable length time-series data
-HMM -
-	linear model to predict sequences using prior probabilities & state machines
-	good when next state depends only on previous state
-	very simple model compared to DL
+
 RNN, LSTM, GRU - 
 	non-linear models
 	continuous representation of everything so far
@@ -172,11 +188,17 @@ Encode-Decoder -
 	attention lets you focus on some of the many time steps
 
 
-word2vec cbow vs skipgram
-both used for context based prediction. cbow prefers high frequency word patterns & it is faster.
 
 NLP -
-Tfidf, LSA, stopwords, stemming, lemmatization
+stopwords, stemming, lemmatization
+POS tags can be created by building state machines on grammar rules
+Tfidf computes term freq / inverse doc freq - assumes topic distribution
+LDA assumes dirchilect prior on topics
+word2vec - cbow vs skipgram - both used for context based prediction. 
+	cbow prefers high frequency word patterns & it is faster.
+	out of vocab can be handled by XXXXXXX
+Bert - uses transformer model for sequence to sequence 
+
 
 
 Production Pipeline
