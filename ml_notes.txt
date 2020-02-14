@@ -28,6 +28,10 @@ P(z) = p(z|X).p(X) + p(z|Y).p(Y)
 P(X and Y) = P(X) + P(Y) + P(X or Y)
 
 ARIMA is simple time series forecasting technique
+	based on moving averages & regression
+	small data
+	immediate forecasting
+	
 
 DATA MINING
 ===========
