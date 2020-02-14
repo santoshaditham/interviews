@@ -16,6 +16,7 @@ UNDERSTAND DATA
 Monte carlo simulation (theory)
 	Feed from uniform(0,1) to the inverse CDF of X to generate random values of X
 	Markov chain : xk = x0 * pow(P, k) where P is transition probabilities
+	Markov chains stabilize after certain k at which point P needs to be recomputed
 Bootstrapping (practical)
 	dont want to use raw data, then rely on CLT & use bootstrapping for variance tests 
 Importance sampling
