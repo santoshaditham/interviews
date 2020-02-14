@@ -44,6 +44,8 @@ DATA MINING
 ===========
 
 Apriori - scan db multiple times to find patterns based on counts
+	generates candidates & updates them
+	good if unique items is small 
 FP growth - scan db twice to build tree of paths + counts
 
 
