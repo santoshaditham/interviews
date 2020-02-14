@@ -13,12 +13,12 @@ central limit theorem (CLT) - frequency plots of means will be normal distributi
 
 UNDERSTAND DATA
 ===============
-Monte carlo sampling
+Monte carlo simulation (theory)
+	Feed from uniform(0,1) to the inverse CDF of X to generate random values of X
+Bootstrapping (practical)
+	dont want to use raw data, then rely on CLT & use bootstrapping for variance tests 
 Importance sampling
 Rejection sampling
-Bootstrapping
-
-dont want to use raw data, then use CLT for bootstrapping & variance tests 
 
 
 ANOVA and Tukey (assume normal distribution)
@@ -66,7 +66,6 @@ SVM (support vector machines) for classification -
 support vectors are actual margins + small buffer to allow misclassication
 do cross validation with diff support vectors
 move computations to higher dimensions using kernel functions & dot product
-
 
 
 HMM (Hidden Markov Models) for variable length time-series data -
