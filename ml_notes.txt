@@ -95,19 +95,20 @@ P(x|y) = P(y|x).P(x) / P(y)
 
 
 random forest vs xgboost (classification and/or regression)
-Bootstapping is randomly selecting data from raw
-Decision trees rely on entropy which is average of variance - they calculate info gain, gini index - use chi square test.
+Decision trees rely on entropy which is average of variance - they calculate info gain & prune leaves.
 Rf is bagging technique, learn individual weak learners & avg. 
+	Bootstapping is randomly selecting data from raw
 	Build bunch of decision trees for randomly picked features from randomly picked data (bootstrap)
 	Increase / Decrease number of picked features & do again
 	Aggregate the results from all trees to finalize
+	Bagging = bootsrap + aggregate to prevent overfit
 	Check out-of-bag data accuracy (look at all trees) 
 	Missing data for features need to be guessed
 XGboost is boosting technique, learn weak learners in sequence + use weights.
 	Start with a random leaf & build RESIDUAL/ERROR tree
 	Continue building CHAIN of residual trees (more features)
 	Each tree is small (say 4) 
-	Combine values by averaging features (regression) / log odds (classification)
+	Aggregate values by averaging features (regression) / log odds (classification)
 	Calculate predictions using learning rate (avoid overfit)
 	
 	
