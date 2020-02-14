@@ -48,7 +48,11 @@ KNN (supervised) - have data with labels ; get new unlabeled data ; measure dist
 pick top k labeled data ; give new label based on max of top k
 
 
-SVM (support vector machines) -
+SVM (support vector machines) for classification -
+support vectors are actual margins + small buffer to allow misclassication
+do cross validation with diff support vectors
+move computations to higher dimensions using kernel functions & dot product
+
 
 
 HMM (Hidden Markov Models) for variable length time-series data -
