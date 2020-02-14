@@ -72,8 +72,9 @@ move computations to higher dimensions using kernel functions & dot product
 
 HMM (Hidden Markov Models) for variable length time-series data -
 	linear model to predict sequences using prior probabilities & state machines
-	good when next state depends only on previous state
-	very simple model compared to DL
+	good when next state depends only on previous state (so define prev state carefully)
+	use when final states are finite set
+	has forward/backward learning but very simple model compared to DL
 	
 	
 linear regression - used for gueustimating the relationship between two variables x and y as accurately as possible. 
