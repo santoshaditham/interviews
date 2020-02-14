@@ -13,8 +13,9 @@ central limit theorem (CLT) - frequency plots of means will be normal distributi
 
 
 ANOVA and Tukey (assume student t distribution)
-ANOVA is to measure if 2 means are different - yes/no. This is given by p-value. 
-If p-value is less than alpha (typically 0.05), then 2 means are different because null hypothesis that both are same is invalid. But by how much? Use Tukey test which does all pairs comparison.
+ANOVA is to measure if 3 or more means are different - yes/no. 
+It compares overall mean with individual means
+If p-value is less than alpha (typically 0.05), then means are different because null hypothesis that both are same is invalid. But by how much? Use Tukey test which does all pairs comparison.
 
 dont want to use raw data, then use CLT for bootstrapping & variance tests 
 
