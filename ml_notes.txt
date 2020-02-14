@@ -38,11 +38,6 @@ p(zEX|X) = p(X|zEX).p(z) / P(X)
 p(zEY|Y) = p(Y|zEX).p(z) / P(Y)
 P(z) = p(z|X).p(X) + p(z|Y).p(Y) 
 P(X and Y) = P(X) + P(Y) + P(X or Y)
-
-ARIMA is simple time series forecasting technique
-	based on moving averages & regression
-	small data
-	immediate forecasting
 	
 
 DATA MINING
@@ -68,13 +63,6 @@ SVM (support vector machines) for classification -
 support vectors are actual margins + small buffer to allow misclassication
 do cross validation with diff support vectors
 move computations to higher dimensions using kernel functions & dot product
-
-
-HMM (Hidden Markov Models) for variable length time-series data -
-	linear model to predict sequences using prior probabilities & state machines
-	good when next state depends only on previous state (so define prev state carefully)
-	use when final states are finite set
-	has forward/backward learning but very simple model compared to DL
 	
 	
 linear regression - used for gueustimating the relationship between two variables x and y as accurately as possible. 
@@ -189,7 +177,6 @@ high variance in data + model learning train data = overfit
 regularization (L1 and L2) of weights, dropout, more train data (maybe add noise)
 
 
-
 RNN, LSTM, GRU - 
 	non-linear models
 	continuous representation of everything so far
@@ -208,8 +195,27 @@ Encode-Decoder -
 	attention lets you focus on some of the many time steps
 
 
+TIME SERIES
+===========
 
-NLP -
+ARIMA is simple (linear) time series forecasting technique
+	based on moving averages & regression
+	small data
+	immediate forecasting
+	can try more complex EXPONENTIAL SMOOTHENING
+	
+HMM (Hidden Markov Models) for variable length time-series data -
+	linear model to predict sequences using prior probabilities & state machines
+	good when next state depends only on previous state (so define prev state carefully)
+	use when final states are finite set
+	has forward/backward learning but very simple model compared to DL
+	
+LSTM is the new kid on the block
+
+
+
+NLP 
+===
 stopwords, stemming, lemmatization
 POS tags can be created by building state machines on grammar rules
 N-grams based bag-of-words model is typically step1 for any model like tfidf / lda
