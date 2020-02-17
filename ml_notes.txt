@@ -212,7 +212,8 @@ TIME SERIES
 ARIMA is simple (linear) time series forecasting technique
 	based on moving averages & regression
 	small data & immediate forecasting
-	trends & seasonality need time axis
+	trends fit some distribution - add [or] multiply raw data with something
+	seasonality repeats itself - need time window
 	can try more complex EXPONENTIAL SMOOTHENING
 	
 HMM (Hidden Markov Models) for variable length time-series data -
