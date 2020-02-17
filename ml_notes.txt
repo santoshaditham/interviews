@@ -187,21 +187,21 @@ regularization (L1 and L2) of weights, dropout, more train data (maybe add noise
 
 
 RNN, LSTM, GRU - 
-	non-linear models
-	continuous representation of everything so far
+	non-linear models (tanh / relu activations) 
+	continuous representation of everything so far (previous output + current input)
 	RNN has vanishing gradient problem when sequence is too long
 	LSTM, GRU use sigmoid & tanh gates to remember/forget stuff 
 	To predict a value, look at seq before the value & after the value -- BiLSTM
 	cannot parallelize
+Encode-Decoder -
+	encoder goes thru time steps & puts everything to context vector
+	decoder starts with a context vector and generates next time steps
+	adding attention lets you focus on some of the many time steps
 Attention - 
 	compare with neighborhood to find which are important
 	do matmul between embeddings and decider (say position)
 	softmax to get areas of focus (multi class)
 	summarize (add) & give it to FFNN
-Encode-Decoder -
-	encoder goes thru time steps & puts everything to context vector
-	decoder starts with a context vector and generates next time steps
-	attention lets you focus on some of the many time steps
 
 
 TIME SERIES
@@ -209,8 +209,8 @@ TIME SERIES
 
 ARIMA is simple (linear) time series forecasting technique
 	based on moving averages & regression
-	small data
-	immediate forecasting
+	small data & immediate forecasting
+	trends & seasonality need time axis
 	can try more complex EXPONENTIAL SMOOTHENING
 	
 HMM (Hidden Markov Models) for variable length time-series data -
