@@ -20,7 +20,11 @@ Monte carlo simulation (theory)
 Bootstrapping (practical)
 	dont want to use raw data, then rely on CLT & use bootstrapping for variance tests 
 Importance sampling
+	to generate samples of 
 Rejection sampling
+	to generate samples of non-normal pdf (say exponential)
+	for 2d space, generate 2 values x & y from uniform space
+	reject points above pdf, accept points below pdf
 
 
 ANOVA and Tukey (assume normal distribution)
