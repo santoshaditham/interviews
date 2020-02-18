@@ -44,7 +44,7 @@ If two independent distributions X and Y & we want to check if point z is from X
 assume X , Y are all from indpendent normal distributions - p(X), p(Y) is given
 p(zEX|X) = p(X|zEX).p(z) / P(X)
 p(zEY|Y) = p(Y|zEX).p(z) / P(Y)
-P(z) = p(z|X).p(X) + p(z|Y).p(Y) 
+P(z) = p(zEX|X).p(X) + p(zEY|Y).p(Y) 
 P(X and Y) = P(X) + P(Y) + P(X or Y)
 	
 
