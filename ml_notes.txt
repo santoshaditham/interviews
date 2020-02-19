@@ -14,8 +14,11 @@ central limit theorem (CLT) - frequency plots of means will be normal distributi
 UNDERSTAND DATA
 ===============
 Monte carlo simulation (theory)
-	Unbiased estimators for on some sampling technique (inverse, rejection etc)
-	Most common estimator is least squares
+	Unbiased estimators on some sampling technique (inverse, rejection etc)
+	Metropolis random walk - 
+		pick random point Xi from raw 
+		pick random point from region around Xi -- Xj
+		calc prob (Xj / X) <= uniform(0,1) to select Xj as next state
 	Markov chain : xk = x0 * pow(P, k) where P is transition probabilities
 	Markov chains stabilize after certain k at which point P needs to be recomputed
 Bootstrapping (practical)
