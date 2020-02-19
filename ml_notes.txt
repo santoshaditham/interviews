@@ -14,23 +14,27 @@ central limit theorem (CLT) - frequency plots of means will be normal distributi
 UNDERSTAND DATA
 ===============
 Monte carlo simulation (theory)
-	Unbiased estimators for on some f(x) with known distribution
-	Feed from uniform(0,1) to the inverse CDF of f(x) to generate random values of f(x)
+	Unbiased estimators for on some sampling technique (inverse, rejection etc)
+	Most common estimator is least squares
 	Markov chain : xk = x0 * pow(P, k) where P is transition probabilities
 	Markov chains stabilize after certain k at which point P needs to be recomputed
 Bootstrapping (practical)
 	dont want to use raw data, then rely on CLT & use bootstrapping for variance tests 
 	re-sample again and again WITH replacement
 	in case of biased data, re-scale to center
-Importance sampling
-	to generate samples of unknown pdf
-	rewrite unknown pdf using known pdf (say normal distr) + some factor
-	do WEIGHTED sampling from known pdf
+Inverse sampling
+	to generate samples form a known pdf, say f(x)
+	calculate inverse cdf of the known pdf
+	feed from uniform(0,1) to the inverse cdf to generate random values of x
 Rejection sampling
 	to generate samples of non-normal pdf (say exponential)
 	for 2d space, generate 2 values x & y from uniform space
 	reject points above pdf, accept points below pdf
-
+Importance sampling
+	to generate samples of unknown pdf
+	rewrite unknown pdf using known pdf (say normal distr) + some factor
+	do WEIGHTED sampling from known pdf
+	
 
 ANOVA and Tukey (assume normal distribution)
 ANOVA is to measure if 3 or more sample means are different - yes/no. 
