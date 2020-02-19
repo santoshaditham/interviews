@@ -161,11 +161,9 @@ precision = tp/tp+fp ; recal = tp/tp+fn
 AUC tells fp rate wrt tp rate
 
 
-svd, pca - dimensionality reduction. PC is direction in which there is most variance.
-
-
 Collab filtering - item item, user user or user item.
 matrix factorization - dim reduction. Like PCA. dim reduc (non-negative + coordinate descent)
+svd, pca - dimensionality reduction. PC is direction in which there is most variance.
 Eigen values, Eigen vectors - when linear transforming data to lower dim, eigen value is best multiplier such that
 M * eigenvector = eigenvalue * eigenvector
 
