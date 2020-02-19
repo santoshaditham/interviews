@@ -23,7 +23,8 @@ Monte carlo simulation (theory)
 	Markov chains stabilize after certain k at which point P needs to be recomputed
 Bootstrapping (practical)
 	dont want to use raw data, then rely on CLT & use bootstrapping for variance tests 
-	re-sample again and again WITH replacement
+	select a part of raw data at random -- test set / evaluation set
+	re-sample again and again WITH replacement from that part
 	in case of biased data, re-scale to center
 Inverse sampling
 	to generate samples form a known pdf, say f(x)
