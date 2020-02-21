@@ -42,7 +42,12 @@ Stratified sampling
 	when you have clusters of data - say views, atb, purchases
 	random subsample from each cluster to create random sample
 	
-
+Transform data - 
+	apply log, exp, square root etc
+	normalize to [0, 1)
+	remove skewness
+		
+	
 ANOVA and Tukey (assume normal distribution)
 ANOVA is to measure if 3 or more sample means are different - yes/no. 
 It compares overall mean with individual means
