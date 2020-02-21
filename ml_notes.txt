@@ -149,15 +149,21 @@ momentum = direction in which GD should keep going, based on previous directions
 learning rate = size of the step to take (can be adaptive)
 
 
-Collab filtering - item item, user user or user item.
-matrix factorization - dim reduction. Like PCA. dim reduc (non-negative + coordinate descent)
 svd, pca - dimensionality reduction. PC is direction in which there is most variance.
-Eigen values, Eigen vectors - when linear transforming data to lower dim, eigen value is best multiplier such that
-M * eigenvector = eigenvalue * eigenvector
-
+Eigen values, Eigen vectors - when linear transforming data to lower dim, 
+	eigen value is best multiplier such that
+	M * eigenvector = eigenvalue * eigenvector
+colab filtering - item item, user user or user item.
+matrix factorization - dim reduction. Like PCA. 
+	Raw (mxn) = User (mxk) * Item (kxn) 
+	Raw data = non-negative sparse matrix + coordinate descent
+	User & Item = random init
+	implicit data & weights
+	has loss function + regularization
 implicit ALS = alternate between user and item vectors, give weights to event types
 L2 norm for regularization
 confidence calcualtions using imu/umi/filters/popularity
+
 
 
 EVALUATION
