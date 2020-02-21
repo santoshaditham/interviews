@@ -115,7 +115,10 @@ P(x|y) = P(y|x).P(x) / P(y)
 
 
 random forest vs xgboost (classification and/or regression)
-Decision trees rely on entropy which is average of variance - they calculate info gain & prune leaves.
+Decision trees rely on entropy which is average of variance 
+	calculate info gain (say gini impurity) & pick feature / prune leaves
+	repeat same on other features
+	fix tree max depth
 Rf is bagging technique, learn individual weak learners & avg. 
 	Bootstapping is randomly selecting data from raw
 	Build bunch of decision trees for randomly picked features from randomly picked data (bootstrap)
