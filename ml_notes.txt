@@ -184,10 +184,12 @@ Covariance measures the linear relationship between two variables. Neg infinity 
 Does not measure the strength of the relationship. Correlation does. 
 Some examples of correlation are Pearson coefficient, euclidian distance coefficient.
 
-bias variance tradeoff - high bias & underfit; high variance & overfit. 
-So, either remove some of the features [or] 
-use regularization i.e. reduce impact of some of the features. L1 and L2 reg. [or]
-give more data to model
+bias variance tradeoff - 
+	high bias in model = underfit
+	high variance in data + model learning train data = overfit
+	either remove some of the features [or] 
+	use regularization i.e. reduce impact of some of the features. L1 and L2 reg. [or]
+	give more data to model / add noise to data
 
 accuracy = ratio of correctly classified samples
 precision = tp/tp+fp ; recall = tp/tp+fn ; specificity = tn/tn+fp
@@ -211,10 +213,6 @@ optimizer (for a cost function) = adam, sgd, gd, batch gd, momentum, adaptive le
 loss = RMSE (regression) or Cross Entropy (classification)
 back prop = weighted sum of previous activations + bias (chain rule)
 learned params = weights & bias (both can have noise added to them to avoid overfit)
-
-
-high bias in model = underfit
-high variance in data + model learning train data = overfit
 regularization (L1 and L2) of weights, dropout, more train data (maybe add noise)
 
 
