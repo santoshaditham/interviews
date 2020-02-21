@@ -215,7 +215,9 @@ back prop = weighted sum of previous activations + bias (chain rule)
 learned params = weights & bias (both can have noise added to them to avoid overfit)
 regularization (L1 and L2) of weights, dropout, more train data (maybe add noise)
 
-
+CNN -
+	Input, pooling, dropout, dense, normalize, activation
+	typically used for classification
 RNN, LSTM, GRU - 
 	non-linear models (tanh / relu activations) 
 	continuous representation of everything so far (previous output + current input)
