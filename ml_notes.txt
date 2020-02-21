@@ -185,8 +185,8 @@ Does not measure the strength of the relationship. Correlation does.
 Some examples of correlation are Pearson coefficient, euclidian distance coefficient.
 
 bias variance tradeoff - 
-	high bias in model = underfit
-	high variance in data + model learning train data = overfit
+	model shows high bias towards certain TEST data = underfit 
+	model shows high variance in TEST data = overfit (to TRAIN data)
 	either remove some of the features [or] 
 	use regularization i.e. reduce impact of some of the features. L1 and L2 reg. [or]
 	give more data to model / add noise to data
