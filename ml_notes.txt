@@ -38,6 +38,9 @@ Importance sampling
 	to generate samples of unknown pdf
 	rewrite unknown pdf using known pdf (say normal distr) + some factor
 	do WEIGHTED sampling from known pdf
+Stratified sampling
+	when you have clusters of data - say views, atb, purchases
+	random subsample from each cluster to create random sample
 	
 
 ANOVA and Tukey (assume normal distribution)
