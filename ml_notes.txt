@@ -266,8 +266,11 @@ NLP
 stopwords, stemming, lemmatization
 POS tags can be created by building state machines on grammar rules
 N-grams based bag-of-words model is typically step1 for any model like tfidf / lda
-Tfidf computes term freq / inverse doc freq -- can have various flavours
-LDA assumes dirchilect prior on topics
+Tfidf computes (term freq) * log (inverse doc freq) -- can have various flavours
+LDA -
+	assumes dirchilect prior on topics; 
+	samples words in doc using some distribution;
+	calculates probabilities & repeats several times
 word2vec - cbow vs skipgram - both used for context based prediction. 
 	cbow prefers high frequency word patterns & it is faster.
 	out of vocab cannot be handled - use char level embeddings / some bi-lstm
