@@ -133,8 +133,10 @@ XGboost is boosting technique, learn weak learners in sequence + use weights.
 	Calculate predictions using learning rate (avoid overfit)
 	Use regularization while calculating scores & outputs
 	
-	
-Trees can use data as is ; DL needs data to be transformed into meaningful space --> what is impact?
+Linear, Logistic, Trees --> assume linear decision boundaries	
+Trees can use data as is 
+SVM, DL --> can do non-linear boundaries
+DL needs data to be transformed into meaningful space
 	
 
 gradient descent - used to minimize the error in predicted output. 
