@@ -146,30 +146,6 @@ momentum = direction in which GD should keep going, based on previous directions
 learning rate = size of the step to take (can be adaptive)
 
 
-Covariance vs correlation
-Covariance measures the linear relationship between two variables. Neg infinity to Pos infinity. 
-Does not measure the strength of the relationship. Correlation does. 
-Some examples of correlation are Pearson coefficient, euclidian distance coefficient.
-
-
-bias variance tradeoff - high bias & underfit; high variance & overfit. 
-So, either remove some of the features [or] 
-use regularization i.e. reduce impact of some of the features. L1 and L2 reg. [or]
-give more data to model
-
-
-Make sure to feature engineer on TRAIN data, not ALL data
-Cross validation - k fold, split data in k groups. Train on k-1 groups & test on the kth.
-Bootstrap from test data chunk while measuring accuracy of model
-
-precision = tp/tp+fp ; recall = tp/tp+fn
-we want high precicison & recall
-specificity = inverse measure of FN ; sensitivity = measure of FP
-we want high specificity & sensitivity
-AUC tells fp rate wrt tp rate
-AUC ROC curve (between FP rate and TP rate) can also be (between FP rate and Precision)
-
-
 Collab filtering - item item, user user or user item.
 matrix factorization - dim reduction. Like PCA. dim reduc (non-negative + coordinate descent)
 svd, pca - dimensionality reduction. PC is direction in which there is most variance.
@@ -180,11 +156,38 @@ implicit ALS = alternate between user and item vectors, give weights to event ty
 L2 norm for regularization
 confidence calcualtions using imu/umi/filters/popularity
 
+
+EVALUATION
+==========
+
+Make sure to feature engineer on TRAIN data, not ALL data
+Cross validation - k fold, split data in k groups. Train on k-1 groups & test on the kth.
+Bootstrap from test data chunk while measuring accuracy of model
+
 Distance - eucledian, dot product, cosine similarity etc
 dot product is angle & magnitude. cosine is angle only (norm of magnitude)
 
 Ranking metrics -- NDCG, MAP, Reciprocal Rank
 Char metrics -- Inverse Propensity, Diversity / Coverage, Serendipity (surprise factor) / Novelty
+
+Covariance vs correlation
+Covariance measures the linear relationship between two variables. Neg infinity to Pos infinity. 
+Does not measure the strength of the relationship. Correlation does. 
+Some examples of correlation are Pearson coefficient, euclidian distance coefficient.
+
+bias variance tradeoff - high bias & underfit; high variance & overfit. 
+So, either remove some of the features [or] 
+use regularization i.e. reduce impact of some of the features. L1 and L2 reg. [or]
+give more data to model
+
+accuracy = ratio of correctly classified samples
+precision = tp/tp+fp ; recall = tp/tp+fn ; specificity = tn/tn+fp
+specificity = inverse measure of FN ; sensitivity = measure of FP
+sensitivity & recall are SAME
+we want high precicison & recall
+we want high specificity & sensitivity
+AUC tells fp rate wrt tp rate
+AUC ROC curve (between FP rate and TP rate) can also be (between FP rate and Precision)
 
 
 NEURAL NETWORKS
