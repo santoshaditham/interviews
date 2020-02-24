@@ -25,7 +25,8 @@ Bootstrapping (practical)
 	dont want to use raw data, then rely on CLT & use bootstrapping for variance tests 
 	select a part of raw data at random -- test set / evaluation set
 	re-sample again and again WITH replacement from that part
-	in case of biased data, re-scale to center
+	save means of each random sample & use it to verify variance
+	in case of biased data, re-scale to center of all stored sample means 
 Inverse sampling
 	to generate samples form a known pdf, say f(x)
 	calculate inverse cdf of the known pdf
@@ -52,7 +53,8 @@ ANOVA and Tukey (assume normal distribution)
 ANOVA is to measure if 3 or more sample means are different - yes/no. 
 It compares overall mean with individual means
 Individual samples cannot have big diff in their variance + no outliers
-If p-value is less than alpha (typically 0.05), then means are different because null hypothesis that both are same is invalid. But by how much? Use Tukey test which does all pairs comparison.
+If p-value is less than alpha (typically 0.05), then means are different because null hypothesis that both are same is invalid. 
+But by how much? Use Tukey test which does all pairs comparison.
 
 
 Chi square test = Sigma (y-y')2/y' --> to measure if variance in output is due to input or not
