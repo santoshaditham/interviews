@@ -188,8 +188,10 @@ Char metrics -- Inverse Propensity, Diversity / Coverage, Serendipity (surprise 
 
 Covariance vs correlation
 Covariance measures the linear relationship between two variables. Neg infinity to Pos infinity. 
-Does not measure the strength of the relationship. Correlation does. 
-Some examples of correlation are Pearson coefficient, euclidian distance coefficient.
+Does not measure the strength of the relationship. 
+Correlation does. Some examples of correlation are Pearson coefficient, euclidian distance coefficient.
+multi-variate normal distribution = means of m variables & covariance mxm
+multi-variate normal distribution = means of m variables & std of m variables & corr mxm
 
 bias variance tradeoff - 
 	model shows high bias towards certain TEST data = underfit 
@@ -306,4 +308,5 @@ rnn vs lstm - equations
 attention - equations
 How to add noise to data to avoid overfit?
 Given 2 distribution & value, which distr does value belong to?
+Use random projections as labels for FFN
 ===============================================
