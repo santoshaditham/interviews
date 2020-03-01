@@ -57,6 +57,7 @@ Individual samples cannot have big diff in their variance + no outliers
 If p-value is less than alpha (typically 0.05), then means are different because null hypothesis that both are same is invalid. 
 But by how much? Use Tukey test which does all pairs comparison.
 Always do tests on means of samples, not values in samples 
+Always get data/samples from both user groups & time windows (same user group - trends, seasonality etc)
 
 
 Chi square test = 
