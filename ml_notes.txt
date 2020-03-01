@@ -49,15 +49,20 @@ Transform data -
 	remove skewness
 		
 	
-ANOVA and Tukey (assume normal distribution)
+T-test, ANOVA and Tukey (assume normal distribution)
+T-test is to measure if 2 sample means are different - yes/no
 ANOVA is to measure if 3 or more sample means are different - yes/no. 
 It compares overall mean with individual means
 Individual samples cannot have big diff in their variance + no outliers
 If p-value is less than alpha (typically 0.05), then means are different because null hypothesis that both are same is invalid. 
 But by how much? Use Tukey test which does all pairs comparison.
+Always do tests on means of samples, not values in samples 
 
 
-Chi square test = Sigma (y-y')2/y' --> to measure if variance in output is due to input or not
+Chi square test = 
+Mostly for categorical inputs
+Sigma (y-y')2/y' --> to measure if variance in output is due to input or not
+
 
 If two independent distributions X and Y & we want to check if point z is from X or Y
 assume X , Y are all from indpendent normal distributions - p(X), p(Y) is given
