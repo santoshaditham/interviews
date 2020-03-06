@@ -190,6 +190,9 @@ Distance - eucledian, dot product, cosine similarity etc
 dot product is angle & magnitude. cosine is angle only (norm of magnitude)
 
 Ranking metrics -- NDCG, MAP, Reciprocal Rank
+	NDCG - penalize based on position, apply log penalty
+	MAP - care about positions of all good recoms
+	RR - care about position of the best recom
 Char metrics -- Inverse Propensity, Diversity / Coverage, Serendipity (surprise factor) / Novelty
 
 Covariance vs correlation
