@@ -162,10 +162,15 @@ momentum = direction in which GD should keep going, based on previous directions
 learning rate = size of the step to take (can be adaptive)
 
 
-svd, pca - dimensionality reduction. PC is direction in which there is most variance.
+svd, pca - dimensionality reduction. PC is orthogonal to direction with most variance.
 Eigen values, Eigen vectors - when linear transforming data to lower dim, 
 	eigen value is best multiplier such that
 	M * eigenvector = eigenvalue * eigenvector
+Auto Encoders can be used to convert from N-dim space to M-dim space & back to M-dim space
+	the hidden layer on M-dim space == PCA components
+	but might not be orthogonal like PCA
+	but can use non-linear activations (unlike PCA which is linear)
+	AE arch = M input - K nonlinear active - M hidden - K nonlinear active - M output
 colab filtering - item item, user user or user item.
 matrix factorization - dim reduction. Like PCA. 
 	Raw (mxn) = User (mxk) * Item (kxn) 
