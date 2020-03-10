@@ -129,6 +129,7 @@ P(x|y) = P(y|x).P(x) / P(y)
 
 random forest vs xgboost (classification and/or regression)
 Decision trees rely on entropy which is average of variance 
+	select nodes based on yes/no [or] avg values etc
 	calculate info gain (say gini impurity) & pick feature / prune leaves
 	repeat same on other features
 	fix tree max depth
@@ -137,16 +138,16 @@ Rf is bagging technique, learn individual weak learners & avg.
 	Build bunch of decision trees for randomly picked features from randomly picked data (bootstrap)
 	Increase / Decrease number of picked features & do again
 	Aggregate the results from all trees to finalize
-	Bagging = bootsrap + aggregate to prevent overfit
+	Bagging = bootstrap + aggregate to prevent overfit
 	Check out-of-bag data accuracy (look at all trees) 
 	Missing data for features need to be guessed
 GBT is boosting technique, learn weak learners in sequence + use weights.
-	Start with a random leaf & build RESIDUAL/ERROR tree
+	Start with a random leaf & build RESIDUAL/ERROR tree using averages
 	Calculate scores, gain & compare gain with some defined gamma to prune (or not)
 	Continue building CHAIN of residual trees (more features)
 	Each tree is small (say 4) 
 	Aggregate values by averaging features (regression) / log odds (classification)
-	Calculate predictions using learning rate (avoid overfit)
+	Calculate predictions using a fixed learning rate (avoid overfit)
 	XGBoost - advanced regularization while calculating scores & outputs
 	
 Linear, Logistic, Trees --> assume linear decision boundaries	
@@ -162,7 +163,10 @@ momentum = direction in which GD should keep going, based on previous directions
 learning rate = size of the step to take (can be adaptive)
 
 
-svd, pca - dimensionality reduction. PC is orthogonal to direction with most variance.
+tsne, pca - dimensionality reduction. 
+	PC is orthogonal to direction with most variance.
+	pca is built on top of eigen vectors - deterministic
+	tsne is probabilistic & hence non-deterministic
 Eigen values, Eigen vectors - when linear transforming data to lower dim, 
 	eigen value is best multiplier such that
 	M * eigenvector = eigenvalue * eigenvector
@@ -177,7 +181,7 @@ matrix factorization - dim reduction. Like PCA.
 	Raw data = non-negative sparse matrix + coordinate descent
 	User & Item = random init
 	implicit data & weights
-	has loss function + regularization
+	RMSE loss function + regularization
 implicit ALS = alternate between user and item vectors, give weights to event types
 L2 norm for regularization
 confidence calcualtions using imu/umi/filters/popularity
