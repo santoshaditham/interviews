@@ -119,15 +119,20 @@ log(y/1-y) = mx+c
 y = ez / 1 + ez
 
 
+
+LOSS FUNCTIONS
+==============
 To calc max likelihood = minimize negative log likelihood
-Loss = KL divergence, cross-entropy (for classification) [or] RMSE (regression)
+sigmoid activation = calc sum of negative log loss with truth
+softmax activation = calc probability over all candidates
+relu activation = max(0, pred)
+Listwise, Pairwise & Pointwise loss calculation --> maybe even use Triplet loss
+Typically, loss = KL divergence, cross-entropy (for classification) [or] RMSE (regression)
 Entropy = Negative log probability. 
 Cross entropy is avg entropy size. 
 Divergence is (cross entropy - entropy).
 derivative of linear (y=mx+c) gives convex output -> RMSE works  
 but derivative of logistic (negative log sigmoid) isnt convex -> RMSE does not work 
-
-Listwise, Pairwise & Pointwise loss calculation --> maybe even use Triplet loss
 
 
 Naive Bayes - probabilistic classification model that assumes features are independent.
@@ -199,6 +204,7 @@ EVALUATION
 ==========
 
 Make sure to feature engineer on TRAIN data, not ALL data
+Standardize data in case of class imbalance
 Cross validation - k fold, split data in k groups. Train on k-1 groups & test on the kth.
 Bootstrap from test data chunk while measuring accuracy of model
 
