@@ -5,6 +5,9 @@ mean = sum(points) / count(points)
 variance = sum(square(point-mean)) / count(points)
 std = sqrt(variance)
 
+normalize = (x-min) / (max-min)
+standardize = (x-mean) / std
+
 Pdf - probability density for a continuous random variable P(x-e < X < x+e)
 Cdf - integral of Pdf - probability upto a particular value of the random variable P(X<=x)
 hypothesis tests - statistical significance, p-value
