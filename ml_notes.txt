@@ -5,8 +5,6 @@ mean = sum(points) / count(points)
 variance = sum(square(point-mean)) / count(points)
 std = sqrt(variance)
 
-normalize = (x-min) / (max-min)
-standardize = (x-mean) / std
 
 Pdf - probability density for a continuous random variable P(x-e < X < x+e)
 Cdf - integral of Pdf - probability upto a particular value of the random variable P(X<=x)
@@ -52,7 +50,9 @@ Stratified sampling
 	
 Transform data - 
 	apply log, exp, square root etc
+	normalize = (x-min) / (max-min)
 	normalize to [0, 1)
+	standardize = (x-mean) / std
 	remove skewness
 		
 	
@@ -99,47 +99,31 @@ compute variance of cluster ; do repeatedly ; plot elbow curve
 
 KNN (supervised) - have data with labels ; get new unlabeled data ; measure distances ;
 pick top k labeled data ; give new label based on max of top k
-
-
-SVM (support vector machines) for classification -
-support vectors are actual margins + small buffer to allow misclassication
-do cross validation with diff support vectors
-move computations to higher dimensions using kernel functions & dot product
 	
 	
-linear regression - used for gueustimating the relationship between two variables x and y as accurately as possible. 
+Linear regression - used for gueustimating the relationship between two variables x and y as accurately as possible. 
 Naturally, there is some error while doing so. Typically, RMSE is used to prevent +ve, -ve errors canceling each other out. 
 
 y = mx+c = weight*x + bias
 
-logistic regression - for classification into multiple output variables where the relation between input and output variables follows a logistic funciton [0,1]. 
+Logistic regression - for classification into multiple output variables where the relation between input and output variables follows a logistic funciton [0,1]. 
 It assumes that log odds of y is linear function of x. Counter parts are - naive bayes, svm, neural nets etc.
 
 log(y/1-y) = mx+c
 y = ez / 1 + ez
 
 
-
-LOSS FUNCTIONS
-==============
-To calc max likelihood = minimize negative log likelihood
-sigmoid activation = calc sum of negative log loss with truth
-softmax activation = calc probability over all candidates
-relu activation = max(0, pred)
-Listwise, Pairwise & Pointwise loss calculation --> maybe even use Triplet loss
-Typically, loss = KL divergence, cross-entropy (for classification) [or] RMSE (regression)
-Entropy = Negative log probability. 
-Cross entropy is avg entropy size. 
-Divergence is (cross entropy - entropy).
-derivative of linear (y=mx+c) gives convex output -> RMSE works  
-but derivative of logistic (negative log sigmoid) isnt convex -> RMSE does not work 
+SVM (support vector machines) for classification -
+support vectors are actual margins + small buffer to allow misclassication
+do cross validation with diff support vectors
+move computations to higher dimensions using kernel functions & dot product
 
 
 Naive Bayes - probabilistic classification model that assumes features are independent.
 P(x|y) = P(y|x).P(x) / P(y)
 
 
-random forest vs xgboost (classification and/or regression)
+Random forest vs xgboost (classification and/or regression)
 Decision trees rely on entropy which is average of variance 
 	select nodes based on yes/no [or] avg values etc
 	calculate info gain (say gini impurity) & pick feature / prune leaves
@@ -162,18 +146,12 @@ GBT is boosting technique, learn weak learners in sequence + use weights.
 	Calculate predictions using a fixed learning rate (avoid overfit)
 	XGBoost - advanced regularization while calculating scores & outputs
 	
+
 Linear, Logistic, Trees --> assume linear decision boundaries	
 Trees can use data as is 
 SVM, DL --> can do non-linear boundaries
 DL needs data to be transformed into meaningful space
 	
-
-gradient descent - used to minimize the error in predicted output. 
-Depends on math that derivative [or] rate of change of zero means that it is a point of local minima or maxima. 
-Uses a param called learning rate which tells how quickly the algo should learn to converge. 
-momentum = direction in which GD should keep going, based on previous directions
-learning rate = size of the step to take (can be adaptive)
-
 
 tsne, pca - dimensionality reduction. 
 	PC is orthogonal to direction with most variance.
@@ -203,50 +181,30 @@ factorization machines -
 
 
 
-EVALUATION
-==========
+LOSS FUNCTIONS
+==============
+To calc max likelihood = minimize negative log likelihood
+sigmoid activation = calc sum of negative log loss with truth
+softmax activation = calc probability over all candidates
+relu activation = max(0, pred)
+Listwise, Pairwise & Pointwise loss calculation --> maybe even use Triplet loss
+Typically, loss = KL divergence, cross-entropy (for classification) [or] RMSE (regression)
+Entropy = Negative log probability. 
+Cross entropy is avg entropy size. 
+Divergence is (cross entropy - entropy).
+derivative of linear (y=mx+c) gives convex output -> RMSE works  
+but derivative of logistic (negative log sigmoid) isnt convex -> RMSE does not work 
 
-Make sure to feature engineer on TRAIN data, not ALL data
-Standardize data in case of class imbalance
-Cross validation - k fold, split data in k groups. Train on k-1 groups & test on the kth.
-Bootstrap from test data chunk while measuring accuracy of model
 
-Distance - eucledian, dot product, cosine similarity etc
-dot product is angle & magnitude. cosine is angle only (norm of magnitude)
-
-Ranking metrics -- NDCG, MAP, Reciprocal Rank
-	NDCG - penalize based on position, apply log penalty
-	MAP - care about positions of all good recoms
-	RR - care about position of the best recom
-Char metrics -- Inverse Propensity, Diversity / Coverage, Serendipity (surprise factor) / Novelty
-
-Covariance vs correlation
-Covariance measures the linear relationship between two variables. Neg infinity to Pos infinity. 
-Does not measure the strength of the relationship. 
-Correlation does. Some examples of correlation are Pearson coefficient, euclidian distance coefficient.
-multi-variate normal distribution = means of m variables & covariance mxm
-multi-variate normal distribution = means of m variables & std of m variables & corr mxm
-
-bias variance tradeoff - 
-	model shows high bias towards certain TEST data = underfit 
-	model shows high variance in TEST data = overfit (to TRAIN data)
-	either remove some of the features [or] 
-	use regularization i.e. reduce impact of some of the features. L1 and L2 reg. [or]
-	give more data to model / add noise to data
-
-accuracy = ratio of correctly classified samples
-precision = tp/tp+fp ; recall = tp/tp+fn ; specificity = tn/tn+fp
-specificity = inverse measure of FN ; sensitivity = measure of FP
-sensitivity & recall are SAME
-we want high precicison & recall
-we want high specificity & sensitivity
-AUC tells fp rate wrt tp rate
-AUC ROC curve (between FP rate and TP rate) can also be (between FP rate and Precision)
-F1 = 2*precision*recall / precision + recall --> higher the better
 
 NEURAL NETWORKS
 ===============
 
+gradient descent - used to minimize the error in predicted output. 
+Depends on math that derivative [or] rate of change of zero means that it is a point of local minima or maxima. 
+Uses a param called learning rate which tells how quickly the algo should learn to converge. 
+momentum = direction in which GD should keep going, based on previous directions
+learning rate = size of the step to take (can be adaptive)
 cost function = sum (input * weight) + bias
 non-linear activations to excite certain output = sigmoid, softmax, tanh, relu ; sigmoid [0,1] vs tanh[-1,1] vs relu[0,1]
 gradient descent = which direction towards 0 & how much step to take 
@@ -314,6 +272,48 @@ word2vec - cbow vs skipgram - both used for context based prediction.
 	out of vocab cannot be handled - use char level embeddings / some bi-lstm
 Bert - uses transformer model for sequence to sequence 
 
+
+
+EVALUATION
+==========
+
+Make sure to feature engineer on TRAIN data, not ALL data
+Standardize data in case of class imbalance
+Cross validation - k fold, split data in k groups. Train on k-1 groups & test on the kth.
+Bootstrap from test data chunk while measuring accuracy of model
+
+Distance - eucledian, dot product, cosine similarity etc
+dot product is angle & magnitude. cosine is angle only (norm of magnitude)
+
+Ranking metrics -- NDCG, MAP, Reciprocal Rank
+	NDCG - penalize based on position, apply log penalty
+	MAP - care about positions of all good recoms
+	RR - care about position of the best recom
+Char metrics -- Inverse Propensity, Diversity / Coverage, Serendipity (surprise factor) / Novelty
+
+Covariance vs correlation
+Covariance measures the linear relationship between two variables. Neg infinity to Pos infinity. 
+Does not measure the strength of the relationship. 
+Correlation does. Some examples of correlation are Pearson coefficient, euclidian distance coefficient.
+multi-variate normal distribution = means of m variables & covariance mxm
+multi-variate normal distribution = means of m variables & std of m variables & corr mxm
+
+bias variance tradeoff - 
+	model shows high bias towards certain TEST data = underfit 
+	model shows high variance in TEST data = overfit (to TRAIN data)
+	either remove some of the features [or] 
+	use regularization i.e. reduce impact of some of the features. L1 and L2 reg. [or]
+	give more data to model / add noise to data
+
+accuracy = ratio of correctly classified samples
+precision = tp/tp+fp ; recall = tp/tp+fn ; specificity = tn/tn+fp
+specificity = inverse measure of FN ; sensitivity = measure of FP
+sensitivity & recall are SAME
+we want high precicison & recall
+we want high specificity & sensitivity
+AUC tells fp rate wrt tp rate
+AUC ROC curve (between FP rate and TP rate) can also be (between FP rate and Precision)
+F1 = 2*precision*recall / precision + recall --> higher the better
 
 
 Production Pipeline
