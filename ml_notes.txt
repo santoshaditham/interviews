@@ -116,7 +116,9 @@ y = ez / 1 + ez
 SVM (support vector machines) for classification -
 support vectors are actual margins + small buffer to allow misclassication
 do cross validation with diff support vectors
+rely on bootstrap for finding support vectors
 move computations to higher dimensions using kernel functions & dot product
+supports linear & non-linear boundaries
 
 
 Naive Bayes - probabilistic classification model that assumes features are independent.
