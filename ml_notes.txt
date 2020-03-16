@@ -197,6 +197,9 @@ matrix factorization - dim reduction. Like PCA.
 implicit ALS = alternate between user and item vectors, give weights to event types
 L2 norm for regularization
 confidence calcualtions using imu/umi/filters/popularity
+factorization machines - 
+	matrix factorization (counts) + features
+	minimize distance, maximize uncertainity
 
 
 
@@ -330,6 +333,12 @@ Real-time serve
 	Cached candidates from stage 1 model
 	Rerank (numpy.dot)
 	GCP serve
+
+
+DESIGN
+======
+to personalize = use colab filtering / time series / multi-class classification
+
 
 
 TRICKY:
