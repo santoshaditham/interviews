@@ -314,6 +314,7 @@ bias variance tradeoff -
 	give more data to model / add noise to data
 
 accuracy = ratio of correctly classified samples
+	if you have multi-class, accuracy will suffer due to class imbalance
 precision = tp/tp+fp ; recall = tp/tp+fn ; specificity = tn/tn+fp
 specificity = inverse measure of FN ; sensitivity = measure of FP
 sensitivity & recall are SAME
