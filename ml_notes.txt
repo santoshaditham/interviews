@@ -114,14 +114,6 @@ log(y/1-y) = mx+c
 y = ez / 1 + ez
 
 
-SVM (support vector machines) for classification -
-support vectors are actual margins + small buffer to allow misclassication
-do cross validation with diff support vectors
-rely on bootstrap for finding support vectors
-move computations to higher dimensions using kernel functions & dot product
-supports linear & non-linear boundaries
-
-
 Naive Bayes - probabilistic classification model that assumes features are independent.
 P(x|y) = P(y|x).P(x) / P(y)
 
@@ -150,6 +142,15 @@ GBT is boosting technique, learn weak learners in sequence + use weights.
 	XGBoost - advanced regularization while calculating scores & outputs
 	
 
+
+SVM (support vector machines) for classification -
+support vectors are actual margins + small buffer to allow misclassication
+do cross validation with diff support vectors
+rely on bootstrap for finding support vectors
+move computations to higher dimensions using kernel functions & dot product
+supports linear & non-linear boundaries
+
+
 Linear, Logistic, Trees --> assume linear decision boundaries	
 Trees can use data as is 
 SVM, DL --> can do non-linear boundaries
@@ -163,11 +164,6 @@ tsne, pca - dimensionality reduction.
 Eigen values, Eigen vectors - when linear transforming data to lower dim, 
 	eigen value is best multiplier such that
 	M * eigenvector = eigenvalue * eigenvector
-Auto Encoders can be used to convert from N-dim space to M-dim space & back to M-dim space
-	the hidden layer on M-dim space == PCA components
-	but might not be orthogonal like PCA
-	but can use non-linear activations (unlike PCA which is linear)
-	AE arch = M input - K nonlinear active - M hidden - K nonlinear active - M output
 colab filtering - item item, user user or user item.
 matrix factorization - dim reduction. Like PCA. 
 	Raw (mxn) = User (mxk) * Item (kxn) 
@@ -176,12 +172,20 @@ matrix factorization - dim reduction. Like PCA.
 	implicit data & weights
 	RMSE loss function + regularization
 implicit ALS = alternate between user and item vectors, give weights to event types
-L2 norm for regularization
-confidence calcualtions using imu/umi/filters/popularity
+	L2 norm for regularization
+	confidence calcualtions using imu/umi/filters/popularity
 factorization machines - 
 	matrix factorization (counts) + features
 	minimize distance, maximize uncertainity
-
+Auto Encoders can be used to convert from N-dim space to M-dim space & back to N-dim space
+	the hidden layer on M-dim space == PCA components
+	but might not be orthogonal like PCA
+	but can use non-linear activations (unlike PCA which is linear)
+	AE arch = N input - k nonlinear active - M hidden - K nonlinear active - N output
+Variational AE - context vector / M-dim space is from sampling
+	use FC layers to transform input data in N-dim to N-dim
+	sampling to M-dim (encode)
+	decode from M-dim to N-dim
 
 
 LOSS FUNCTIONS
