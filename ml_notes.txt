@@ -54,6 +54,7 @@ Transform data -
 	normalize to [0, 1)
 	standardize = (x-mean) / std
 	remove skewness
+	normalize for RF ; standradize for SVM ; Min-Max scale for KNN etc
 		
 	
 T-test, ANOVA and Tukey (assume normal distribution)
