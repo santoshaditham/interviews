@@ -191,11 +191,9 @@ Variational AE - context vector / M-dim space is from sampling
 LOSS FUNCTIONS
 ==============
 To calc max likelihood = minimize negative log likelihood
-sigmoid activation = calc sum of negative log loss with truth
-softmax activation = calc probability over all candidates
-relu activation = max(0, pred)
 Listwise, Pairwise & Pointwise loss calculation --> maybe even use Triplet loss
 Typically, loss = KL divergence, cross-entropy (for classification) [or] RMSE (regression)
+RMSE is the standard deviation of the residuals (yi - ypredi)
 Entropy = Negative log probability. 
 Cross entropy is avg entropy size. 
 Divergence is (cross entropy - entropy).
@@ -214,7 +212,15 @@ Uses a param called learning rate which tells how quickly the algo should learn 
 momentum = direction in which GD should keep going, based on previous directions
 learning rate = size of the step to take (can be adaptive)
 cost function = sum (input * weight) + bias
-non-linear activations to excite certain output = sigmoid, softmax, tanh, relu ; sigmoid [0,1] vs tanh[-1,1] vs relu[0,1]
+non-linear activations to excite certain output 
+	sigmoid activation = calc sum of negative log loss with truth
+	tanh activation = steeper gradient than sigmoid
+	relu activation = max(0, pred)  
+	sigmoid [0,1] vs tanh[-1,1] vs relu[0,1]
+	sigmoid, tanh have a vanishing gradient problem
+	softmax activation = calc probability over all candidates 
+			for output layers with multi-class
+			formula = ei / sigma(e)
 gradient descent = which direction towards 0 & how much step to take 
 optimizer (for a cost function) = adam, sgd, gd, batch gd, momentum, adaptive learning rate ; 
 	Adam is using momentum. 
@@ -241,7 +247,7 @@ Encode-Decoder -
 Attention - 
 	compare with neighborhood to find which are important
 	do matmul between embeddings and decider (say position)
-	softmax to get areas of focus (multi class)
+	softmax to get areas of focus (probability on multi class)
 	summarize (add) & give it to FFNN
 
 
