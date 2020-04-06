@@ -145,9 +145,9 @@ GBT is boosting technique, learn weak learners in sequence + use weights.
 
 SVM (support vector machines) for classification -
 support vectors are actual margins + small buffer to allow misclassication
+move computations to higher dimensions using kernel functions & dot product
 do cross validation with diff support vectors
 rely on bootstrap for finding support vectors
-move computations to higher dimensions using kernel functions & dot product
 supports linear & non-linear boundaries
 
 
