@@ -198,10 +198,11 @@ Entropy = Negative log probability.
 Cross entropy is avg entropy size. 
 Divergence is (cross entropy - entropy).
 derivative of linear (y=mx+c) gives convex output -> RMSE works  
-but derivative of logistic (negative log sigmoid) isnt convex -> RMSE does not work 
+but derivative of logistic/sigmoid isnt convex -> RMSE does not work 
+	hence we compute negative log(sigmoid)
 contrastive loss -
 	diff = positive sample - negative sample
-	sigmoid(diff) + regularize
+	logsigmoid(diff) + regularize
 
 NEURAL NETWORKS
 ===============
