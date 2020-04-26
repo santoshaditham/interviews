@@ -174,7 +174,13 @@ matrix factorization - dim reduction. Like PCA.
 implicit ALS = alternate between user and item vectors, give weights to event types
 	L2 norm for regularization
 	confidence calcualtions using imu/umi/filters/popularity
-factorization machines - 
+NCF - CF with DL
+	have user factors and item factors as initial embed layers
+	one path - matmul like traditional CF
+	one path - multiple FC layers with RELU
+	combine both paths & sigmoid 
+	use dropouts where needed
+Factorization Machines - 
 	matrix factorization (counts) + features
 	minimize distance, maximize uncertainity
 Auto Encoders can be used to convert from N-dim space to M-dim space & back to N-dim space
