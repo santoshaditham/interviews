@@ -229,6 +229,7 @@ non-linear activations to excite certain output
 			for output layers with multi-class
 			formula = ei / sigma(e)
 gradient descent = which direction towards 0 & how much step to take 
+parallel gradient descent for large scale = https://joerihermans.com/ramblings/distributed-deep-learning-part-1-an-introduction/
 optimizer (for a cost function) = adam, sgd, gd, batch gd, momentum, adaptive learning rate ; 
 	Adam is using momentum. 
 	Stochastic GD is compute cost at every step instead of cost for all.
