@@ -4,7 +4,7 @@ BASIC PROBABILITY
 mean = sum(points) / count(points)
 variance = sum(square(point-mean)) / count(points)
 std = sqrt(variance)
-
+std error - if we take multiple data samples from population, we can calc std of means
 
 Pdf - probability density for a continuous random variable P(x-e < X < x+e)
 Cdf - integral of Pdf - probability upto a particular value of the random variable P(X<=x)
@@ -13,11 +13,13 @@ p-value - hypothesis test that verifies if observation is purely by chance (<0.0
 critical regions & confidence intervals
 uniform distribution is in range [-m, m)
 normal distribution has mean +/- variance
-std error - if we take multiple data samples from population, we can calc std of means
 central limit theorem (CLT) - frequency plots of means will be normal distribution, lesser std if more means
 
 UNDERSTAND DATA
 ===============
+Sampling from raw data = 
+	with replacement means you replace the selected data point back into dataset for future selection 
+	without replacement means once a data point is selected we cannot select it again
 Monte carlo simulation (theory)
 	Unbiased estimators on some sampling technique (inverse, rejection etc)
 	Metropolis random walk - 
@@ -113,6 +115,9 @@ It assumes that log odds of y is linear function of x. Counter parts are - naive
 log(y/1-y) = mx+c
 y = ez / 1 + ez
 
+Linear, Logistic --> assume linear decision boundaries ; error variance is constant & errors are independent ; variables are not collinear	
+If we violate assumptions then coeff or std err will vary & hence inconclusive
+Use residual plots to test
 
 Naive Bayes - probabilistic classification model that assumes features are independent.
 P(x|y) = P(y|x).P(x) / P(y)
@@ -141,7 +146,7 @@ GBT is boosting technique, learn weak learners in sequence + use weights.
 	Calculate predictions using a fixed learning rate (avoid overfit)
 	XGBoost - advanced regularization while calculating scores & outputs
 	
-
+Trees --> assume linear decision boundaries ; can use data as is 
 
 SVM (support vector machines) for classification -
 support vectors are actual margins + small buffer to allow misclassication
@@ -149,12 +154,7 @@ move computations to higher dimensions using kernel functions & dot product
 do cross validation with diff support vectors
 rely on bootstrap for finding support vectors
 supports linear & non-linear boundaries
-
-
-Linear, Logistic, Trees --> assume linear decision boundaries	
-Trees can use data as is 
-SVM, DL --> can do non-linear boundaries
-DL needs data to be transformed into meaningful space
+SVM --> can do non-linear boundaries
 	
 
 tsne, pca - dimensionality reduction. 
@@ -257,6 +257,9 @@ Attention -
 	do matmul between embeddings and decider (say position)
 	softmax to get areas of focus (probability on multi class)
 	summarize (add) & give it to FFNN
+	
+DL --> can do non-linear boundaries
+DL --> needs data to be transformed into meaningful space
 
 
 TIME SERIES
