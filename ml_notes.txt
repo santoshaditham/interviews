@@ -381,5 +381,7 @@ How to add noise to data to avoid overfit?
 Given 2 distribution & value, which distr does value belong to?
 Use random projections as labels for FFN
 multi modal - combining various kinds of features like images, text etc
-
+graph NN
+zero/one shot learners
+transfer learning
 ===============================================
