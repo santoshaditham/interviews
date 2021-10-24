@@ -3,8 +3,12 @@ BASIC PROBABILITY
 
 mean = sum(points) / count(points)
 variance = sum(square(point-mean)) / count(points)
+covariance = sum(1/n (x-xmean) * (y-ymean)), talks about how x and y change together
 std = sqrt(variance)
 std error - if we take multiple data samples from population, we can calc std of means
+
+intuition behind using prior & posterior distr :
+if we assume a random variable x follows a guassian prior with 0 mean and covariance that can be explained by a function f(x) then we can use guassian process to estimate its posterior (prediction). Since x is a random variable, it can take multiple paths from time t into future. This is similar to multivariate distribution. Given a set of finite data points X for random variable x, we can predict future values of x by using for kernel function f(x).
 
 Pdf - probability density for a continuous random variable P(x-e < X < x+e)
 Cdf - integral of Pdf - probability upto a particular value of the random variable P(X<=x)
@@ -296,6 +300,7 @@ word2vec - cbow vs skipgram - both used for context based prediction.
 	cbow prefers high frequency word patterns & it is faster.
 	out of vocab cannot be handled - use char level embeddings / some bi-lstm
 Bert - uses transformer model for sequence to sequence 
+GPT3 - crazy big model that can understand xxxx
 
 
 
@@ -375,4 +380,6 @@ attention - equations
 How to add noise to data to avoid overfit?
 Given 2 distribution & value, which distr does value belong to?
 Use random projections as labels for FFN
+multi modal - combining various kinds of features like images, text etc
+
 ===============================================
