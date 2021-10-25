@@ -160,14 +160,15 @@ rely on bootstrap for finding support vectors
 supports linear & non-linear boundaries
 SVM --> can do non-linear boundaries
 	
-
-tsne, pca - dimensionality reduction. 
-	PC is orthogonal to direction with most variance.
-	pca is built on top of eigen vectors - deterministic
-	tsne is probabilistic & hence non-deterministic
-Eigen values, Eigen vectors - when linear transforming data to lower dim, 
-	eigen value is best multiplier such that
-	M * eigenvector = eigenvalue * eigenvector
+dimensionality reduction
+	tsne, pca -  
+		PC is orthogonal to direction with most variance.
+		pca is built on top of eigen vectors - deterministic
+		tsne is probabilistic & hence non-deterministic
+	Eigen values, Eigen vectors - 
+		when linear transforming data to lower dim, 
+		eigen value is best multiplier such that
+		M * eigenvector = eigenvalue * eigenvector
 colab filtering - item item, user user or user item.
 matrix factorization - dim reduction. Like PCA. 
 	Raw (mxn) = User (mxk) * Item (kxn) 
@@ -175,7 +176,9 @@ matrix factorization - dim reduction. Like PCA.
 	User & Item = random init
 	implicit data & weights
 	RMSE loss function + regularization
-implicit ALS = alternate between user and item vectors, give weights to event types
+implicit ALS -
+	alternate between user and item vectors
+	give weights to event types like view, atb, purchase
 	L2 norm for regularization
 	confidence calcualtions using imu/umi/filters/popularity
 NCF - CF with DL
@@ -296,12 +299,22 @@ LDA -
 	assumes dirchilect prior on topics; 
 	samples words in doc using some distribution;
 	calculates probabilities & repeats several times
-word2vec - cbow vs skipgram - both used for context based prediction. 
+transfer learning - 
+	ability to learn one thing, say word embeddings
+	use that knowledge in another final task, say text summarization
+	final task needs fine tuning 
+word2vec - 
+	cbow vs skipgram : both used for context based prediction. 
 	cbow prefers high frequency word patterns & it is faster.
 	out of vocab cannot be handled - use char level embeddings / some bi-lstm
-Bert - uses transformer model for sequence to sequence 
-GPT3 - crazy big model that can understand xxxx
-
+glove -
+	similar to word2vec, generates word embeddings
+big base models trained on massive data
+	Bert - bidirectional, uses transformer model for sequence to sequence 
+	GPT3 - unidirectional, uses transformer model with 100s of billions of params
+zero/one/few shot learners -
+	small num of train samples or no train samples for some label 
+	but still okay because base model is GPT3 or something big
 
 
 EVALUATION
@@ -379,9 +392,7 @@ rnn vs lstm - equations
 attention - equations
 How to add noise to data to avoid overfit?
 Given 2 distribution & value, which distr does value belong to?
-Use random projections as labels for FFN
+Using random projections as labels for FFN when you dont know what to predict
 multi modal - combining various kinds of features like images, text etc
 graph NN
-zero/one shot learners
-transfer learning
 ===============================================
