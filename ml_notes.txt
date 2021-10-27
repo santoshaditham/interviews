@@ -222,10 +222,20 @@ NEURAL NETWORKS
 
 gradient descent - used to minimize the error in predicted output. 
 Depends on math that derivative [or] rate of change of zero means that it is a point of local minima or maxima. 
+batch mode = all at once ; stochastic = one point at a time ; mini batch = few points at a time (keep shuffling)
+gradient descent = which direction towards 0 & how much step to take 
+parallel gradient descent for large scale = https://joerihermans.com/ramblings/distributed-deep-learning-part-1-an-introduction/
+We need to avoid local minima
 Uses a param called learning rate which tells how quickly the algo should learn to converge. 
-momentum = direction in which GD should keep going, based on previous directions
 learning rate = size of the step to take (can be adaptive)
+learning rate decay scheduled based on epochs
+momentum = direction in which GD should keep going, based on previous directions
+momentum adds fraction of previous decay output to current decay output calc, along with gradient
+optimizer (for a cost function) = adam, sgd, gd, batch gd, momentum, adaptive learning rate ; 
+	Adam is using decay in two ways - abs diff in gardient & squared diff in gradient. 
+	Stochastic GD is compute cost at every step instead of cost for all.
 cost function = sum (input * weight) + bias
+initializing weights with normal distr & bias with 0 is common
 non-linear activations to excite certain output 
 	sigmoid activation = calc sum of negative log loss with truth
 	tanh activation = steeper gradient than sigmoid
@@ -235,13 +245,9 @@ non-linear activations to excite certain output
 	softmax activation = calc probability over all candidates 
 			for output layers with multi-class
 			formula = ei / sigma(e)
-gradient descent = which direction towards 0 & how much step to take 
-parallel gradient descent for large scale = https://joerihermans.com/ramblings/distributed-deep-learning-part-1-an-introduction/
-optimizer (for a cost function) = adam, sgd, gd, batch gd, momentum, adaptive learning rate ; 
-	Adam is using momentum. 
-	Stochastic GD is compute cost at every step instead of cost for all.
 loss = RMSE (regression) or Cross Entropy (classification)
 back prop = weighted sum of previous activations + bias (chain rule)
+batch normalize after every few epochs or for every mini batch
 learned params = weights & bias (both can have noise added to them to avoid overfit)
 regularization (L1 and L2) of weights, dropout, more train data (maybe add noise)
 
