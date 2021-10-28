@@ -109,19 +109,26 @@ pick top k labeled data ; give new label based on max of top k
 	
 	
 Linear regression - used for gueustimating the relationship between two variables x and y as accurately as possible. 
-Naturally, there is some error while doing so. Typically, RMSE is used to prevent +ve, -ve errors canceling each other out. 
+If we normalize data, coeff will change. But result wont. Hence we can use data as-is. 
+Naturally, there is some error while doing so. 
+Typically, RMSE is used to prevent +ve, -ve errors canceling each other out. 
 
 y = mx+c = weight*x + bias
 
-Logistic regression - for classification into multiple output variables where the relation between input and output variables follows a logistic funciton [0,1]. 
-It assumes that log odds of y is linear function of x. Counter parts are - naive bayes, svm, neural nets etc.
-
+Logistic regression - for classification into multiple output variables
+relation between input and output variables follows a logistic funciton [0,1]. 
+It assumes that log odds of y is linear function of x. 
+Hence normalization of data helps. 
 log(y/1-y) = mx+c
 y = ez / 1 + ez
 
-Linear, Logistic --> assume linear decision boundaries ; error variance is constant & errors are independent ; variables are not collinear	
+Linear, Logistic --> 
+assume linear decision boundaries ; 
+error variance is constant & errors are independent ; 
+variables are not collinear	
 If we violate assumptions then coeff or std err will vary & hence inconclusive
 Use residual plots to test
+
 
 Naive Bayes - probabilistic classification model that assumes features are independent.
 P(x|y) = P(y|x).P(x) / P(y)
@@ -150,7 +157,9 @@ GBT is boosting technique, learn weak learners in sequence + use weights.
 	Calculate predictions using a fixed learning rate (avoid overfit)
 	XGBoost - advanced regularization while calculating scores & outputs
 	
-Trees --> assume linear decision boundaries ; can use data as is 
+Trees --> assume linear decision boundaries ; 
+can use data as is because impurity is calc like if-else & small weak learners are used. Normalizing data wont matter.
+
 
 SVM (support vector machines) for classification -
 support vectors are actual margins + small buffer to allow misclassication
@@ -159,6 +168,7 @@ do cross validation with diff support vectors
 rely on bootstrap for finding support vectors
 supports linear & non-linear boundaries
 SVM --> can do non-linear boundaries
+
 	
 dimensionality reduction
 	tsne, pca -  
@@ -271,8 +281,9 @@ Attention -
 	softmax to get areas of focus (probability on multi class)
 	summarize (add) & give it to FFNN
 	
-DL --> can do non-linear boundaries
-DL --> needs data to be transformed into meaningful space
+DL --> 
+can do non-linear boundaries ; 
+needs data to be transformed into meaningful space because of error calc & weights adjustment ;
 
 
 TIME SERIES
