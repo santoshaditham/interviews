@@ -169,7 +169,9 @@ rely on bootstrap for finding support vectors
 supports linear & non-linear boundaries
 SVM --> can do non-linear boundaries
 
-	
+
+REC SYS
+=======
 dimensionality reduction
 	tsne, pca -  
 		PC is orthogonal to direction with most variance.
@@ -179,6 +181,12 @@ dimensionality reduction
 		when linear transforming data to lower dim, 
 		eigen value is best multiplier such that
 		M * eigenvector = eigenvalue * eigenvector
+RFM analysis
+	target users when recommending products
+	look into user's recency, frequency, money
+	score users
+	cluster them to groups such as :
+	  Can't Loose Them, Champions, Loyal, Needs Attention, Potential, Promising, Require Activation
 colab filtering - item item, user user or user item.
 matrix factorization - dim reduction. Like PCA. 
 	Raw (mxn) = User (mxk) * Item (kxn) 
