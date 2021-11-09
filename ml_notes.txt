@@ -8,7 +8,11 @@ std = sqrt(variance)
 std error - if we take multiple data samples from population, we can calc std of means
 
 intuition behind using prior & posterior distr :
-if we assume a random variable x follows a guassian prior with 0 mean and covariance that can be explained by a function f(x) then we can use guassian process to estimate its posterior (prediction). Since x is a random variable, it can take multiple paths from time t into future. This is similar to multivariate distribution. Given a set of finite data points X for random variable x, we can predict future values of x by using for kernel function f(x).
+	if we assume a random variable x follows a guassian prior with 0 mean and covariance that can be explained by a function f(x) 
+	then we can use guassian process to estimate its posterior (prediction). 
+	Since x is a random variable, it can take multiple paths from time t into future. 
+	This is similar to multivariate distribution. 
+	Given a set of finite data points X for random variable x, we can predict future values of x by using for kernel function f(x).
 
 Pdf - probability density for a continuous random variable P(x-e < X < x+e)
 Cdf - integral of Pdf - probability upto a particular value of the random variable P(X<=x)
@@ -32,11 +36,16 @@ Monte carlo simulation (theory)
 		calc prob (Xj / X) <= uniform(0,1) to select Xj as next state
 	Markov chain : xk = x0 * pow(P, k) where P is transition probabilities
 	Markov chains stabilize after certain k at which point P needs to be recomputed
+Repeated K-fold Cross Validation (practical)
+	take full dataset, split into k sections at random
+	train on k-1, test on kth fold - repeat several times & avg
+	leads to relatively low variance and small bias
 Bootstrapping (practical)
 	dont want to use raw data, then rely on CLT & use bootstrapping for variance tests 
 	select a part of raw data at random -- test set / evaluation set
 	re-sample again and again WITH replacement from that part
 	save means of each random sample & use it to verify variance
+	causes high bias but low variance
 	in case of biased data, re-scale to center of all stored sample means 
 Inverse sampling
 	to generate samples form a known pdf, say f(x)
@@ -137,7 +146,9 @@ P(x|y) = P(y|x).P(x) / P(y)
 Random forest vs xgboost (classification and/or regression)
 Decision trees rely on entropy which is average of variance 
 	select nodes based on yes/no [or] avg values etc
-	calculate info gain (say gini impurity) & pick feature / prune leaves
+	calculate info gain (or gini impurity) & pick feature / prune leaves
+	info gain to measure the quality of a split, prev entropy - curr entropy
+	entropy = -sigma(plogp) where p is prob of belonging to class
 	repeat same on other features
 	fix tree max depth
 Rf is bagging technique, learn individual weak learners & avg. 
@@ -173,14 +184,14 @@ SVM --> can do non-linear boundaries
 REC SYS
 =======
 dimensionality reduction
-	tsne, pca -  
-		PC is orthogonal to direction with most variance.
-		pca is built on top of eigen vectors - deterministic
-		tsne is probabilistic & hence non-deterministic
 	Eigen values, Eigen vectors - 
 		when linear transforming data to lower dim, 
 		eigen value is best multiplier such that
 		M * eigenvector = eigenvalue * eigenvector
+	tsne, pca -  
+		PC is orthogonal to direction with most variance.
+		pca is built on top of eigen vectors - deterministic
+		tsne is probabilistic & hence non-deterministic
 RFM analysis
 	target users when recommending products
 	look into user's recency, frequency, money
