@@ -18,7 +18,8 @@ Pdf - probability density for a continuous random variable P(x-e < X < x+e)
 Cdf - integral of Pdf - probability upto a particular value of the random variable P(X<=x)
 hypothesis tests - statistical significance, p-value
 p-value - hypothesis test that verifies if observation is purely by chance (<0.05 means null hypothesis is invalid)
-critical regions & confidence intervals
+if z score (static table of values) in critical regions then null hypothesis is rejected
+confidence intervals +/- around p value
 uniform distribution is in range [-m, m)
 normal distribution has mean +/- variance
 central limit theorem (CLT) - frequency plots of means will be normal distribution, lesser std if more means
