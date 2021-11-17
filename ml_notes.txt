@@ -29,14 +29,6 @@ UNDERSTAND DATA
 Sampling from raw data = 
 	with replacement means you replace the selected data point back into dataset for future selection 
 	without replacement means once a data point is selected we cannot select it again
-Monte carlo simulation (theory)
-	Unbiased estimators on some sampling technique (inverse, rejection etc)
-	Metropolis random walk - 
-		pick random point Xi from raw 
-		pick random point from region around Xi -- Xj
-		calc prob (Xj / X) <= uniform(0,1) to select Xj as next state
-	Markov chain : xk = x0 * pow(P, k) where P is transition probabilities
-	Markov chains stabilize after certain k at which point P needs to be recomputed
 Repeated K-fold Cross Validation (practical)
 	take full dataset, split into k sections at random
 	train on k-1, test on kth fold - repeat several times & avg
@@ -48,6 +40,12 @@ Bootstrapping (practical)
 	save means of each random sample & use it to verify variance
 	causes high bias but low variance
 	in case of biased data, re-scale to center of all stored sample means 
+Over / Under sampling
+	balance classes by synthetically adding more points for minority class
+	balance classes by randomly selecting on few points from majority class
+Stratified sampling
+	when you have clusters of data - say views, atb, purchases
+	random subsample from each cluster to create random sample
 Inverse sampling
 	to generate samples form a known pdf, say f(x)
 	calculate inverse cdf of the known pdf
@@ -60,9 +58,14 @@ Importance sampling
 	to generate samples of unknown pdf
 	rewrite unknown pdf using known pdf (say normal distr) + some factor
 	do WEIGHTED sampling from known pdf
-Stratified sampling
-	when you have clusters of data - say views, atb, purchases
-	random subsample from each cluster to create random sample
+Monte carlo simulation (theory)
+	Unbiased estimators on some sampling technique (inverse, rejection etc)
+	Metropolis random walk - 
+		pick random point Xi from raw 
+		pick random point from region around Xi -- Xj
+		calc prob (Xj / X) <= uniform(0,1) to select Xj as next state
+	Markov chain : xk = x0 * pow(P, k) where P is transition probabilities
+	Markov chains stabilize after certain k at which point P needs to be recomputed
 	
 Transform data - 
 	apply log, exp, square root etc
