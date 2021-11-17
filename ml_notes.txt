@@ -150,8 +150,9 @@ Decision trees rely on entropy which is average of variance
 	info gain to measure the quality of a split, prev entropy - curr entropy
 	entropy = -sigma(plogp) where p is prob of belonging to class
 	repeat same on other features
-	fix tree max depth
-Rf is bagging technique, learn individual weak learners & avg. 
+	as tree depth increases we are making trees too specific
+	as num trees increases we are making model learn (info gain) less and less
+Rf is bagging technique, learn individual learners & avg. 
 	Bootstapping is randomly selecting data from raw
 	Build bunch of decision trees for randomly picked features from randomly picked data (bootstrap)
 	Increase / Decrease number of picked features & do again
@@ -184,6 +185,7 @@ SVM --> can do non-linear boundaries
 REC SYS
 =======
 dimensionality reduction
+	also known as feature projections in ML world - helps not needing to retrain always
 	Eigen values, Eigen vectors - 
 		when linear transforming data to lower dim, 
 		eigen value is best multiplier such that
