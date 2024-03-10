@@ -66,6 +66,11 @@ Monte carlo simulation (theory)
 		calc prob (Xj / X) <= uniform(0,1) to select Xj as next state
 	Markov chain : xk = x0 * pow(P, k) where P is transition probabilities
 	Markov chains stabilize after certain k at which point P needs to be recomputed
+	MCMC is popular inference technique, other are Maximum likelihood estimate and Frequentist
+Maximum likelihood estimate
+	Find the parameter values that maximize the likelihood of observing the data given the model
+	MLE uses optimization such as gradient descent, adam etc
+	MLE is consistent, as data increases it converges to true value of data
 	
 Transform data - 
 	apply log, exp, square root etc
