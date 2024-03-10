@@ -131,6 +131,7 @@ Linear regression - used for gueustimating the relationship between two variable
 If we normalize data, coeff will change. But result wont. Hence we can use data as-is. 
 Naturally, there is some error while doing so. 
 Typically, RMSE is used to prevent +ve, -ve errors canceling each other out. 
+Other option is MAPE. More interpretible but struggles at 0 values of gt or pred
 
 y = mx+c = weight*x + bias
 
