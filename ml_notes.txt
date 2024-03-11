@@ -201,10 +201,12 @@ dimensionality reduction
 		when linear transforming data to lower dim, 
 		eigen value is best multiplier such that
 		M * eigenvector = eigenvalue * eigenvector
-	tsne, pca -  
+	tsne, pca, umap -  
 		PC is orthogonal to direction with most variance.
 		pca is built on top of eigen vectors - deterministic
 		tsne is probabilistic & hence non-deterministic
+		umap is also probabilistic but tries to preserve structure of data in low dim
+		super large data, use pca else use umap
 RFM analysis
 	target users when recommending products
 	look into user's recency, frequency, money
