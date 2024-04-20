@@ -413,12 +413,25 @@ F1 = 2*precision*recall / precision + recall --> higher the better
 
 Production Pipeline
 ===================
+Parallel Train
+	DP - data parallel
+	DDP - distributed data parallel + data loader sampler
+	MP - model parallel
+	PP - pipeline parallel
+Optimize
+	Student Teacher models
+	Quantize - brain float 16 (bf16) / int4
+	Prune model (if trees)
+	Convert to spl hardware like inferentia
+	Lora: basically pca weight matrix 
+	Different kinds of attention mechanism + cache
+	Matryoshka embedding (say first 100 dims of a 400 embedding model)
 Nightly builds
 	Spark data load
 	PySpark preprocess
 	Python model / Pytorch model
 	Argo workflow manager (kubeflow)
-	GCP serve
+	GCP serve, Torch Serve, 
 Real-time serve
 	JSON request (userid, pid)
 	Cached embeddings (userid, pid)
@@ -427,7 +440,7 @@ Real-time serve
 	Cached model inference
 	Cached candidates from stage 1 model
 	Rerank (numpy.dot)
-	GCP serve
+	GCP serve, Torch Serve, 
 
 
 DESIGN
