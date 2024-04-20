@@ -415,9 +415,9 @@ Production Pipeline
 ===================
 Parallel Train
 	DP - data parallel
-	DDP - distributed data parallel + data loader sampler
+		DDP - distributed data parallel + data loader sampler
 	MP - model parallel
-	PP - pipeline parallel
+		PP - pipeline parallel (mp if done at layer level only)
 Optimize
 	Student Teacher models
 	Quantize - brain float 16 (bf16) / int4
