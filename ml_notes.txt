@@ -265,6 +265,8 @@ but derivative of logistic/sigmoid isnt convex -> RMSE does not work
 contrastive loss -
 	diff = positive sample - negative sample
 	logsigmoid(diff) + regularize
+this is a great resource for loss functions
+	https://sebastianraschka.com/blog/2022/losses-learned-part1.html
 
 NEURAL NETWORKS
 ===============
