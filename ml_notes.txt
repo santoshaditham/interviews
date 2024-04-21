@@ -67,6 +67,7 @@ Monte carlo simulation (theory)
 	Markov chain : xk = x0 * pow(P, k) where P is transition probabilities
 	Markov chains stabilize after certain k at which point P needs to be recomputed
 	MCMC is popular inference technique, other are Maximum likelihood estimate and Frequentist
+	LDA is one popular MCMC technique in NLP space
 Maximum likelihood estimate
 	Find the parameter values that maximize the likelihood of observing the data given the model
 	MLE uses optimization such as gradient descent, adam etc
@@ -185,12 +186,14 @@ can use data as is because impurity is calc like if-else & small weak learners a
 
 
 SVM (support vector machines) for classification -
+=========
 support vectors are actual margins + small buffer to allow misclassication
 move computations to higher dimensions using kernel functions & dot product
 do cross validation with diff support vectors
 rely on bootstrap for finding support vectors
 supports linear & non-linear boundaries
 SVM --> can do non-linear boundaries
+### hope SVM stuff is obsolete now ###
 
 
 REC SYS
@@ -235,6 +238,7 @@ Factorization Machines -
 	matrix factorization (counts) + features
 	minimize distance, maximize uncertainity
 Auto Encoders can be used to convert from N-dim space to M-dim space & back to N-dim space
+	have encoder and decoder
 	the hidden layer on M-dim space == PCA components
 	but might not be orthogonal like PCA
 	but can use non-linear activations (unlike PCA which is linear)
@@ -243,6 +247,7 @@ Variational AE - context vector / M-dim space is from sampling
 	use FC layers to transform input data in N-dim to N-dim
 	sampling to M-dim (encode)
 	decode from M-dim to N-dim
+	AE / VAE are more popular in image, video, anomaly detection etc
 
 
 LOSS FUNCTIONS
@@ -314,6 +319,10 @@ Attention -
 	do matmul between embeddings and decider (say position)
 	softmax to get areas of focus (probability on multi class)
 	summarize (add) & give it to FFNN
+Transformer -
+	Sequential input, next token generation
+	NLP task like summarization, QnA, translation
+	Attention is all you need
 	
 DL --> 
 can do non-linear boundaries ; 
