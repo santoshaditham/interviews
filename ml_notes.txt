@@ -483,25 +483,26 @@ What is an accelerator ?
 - Mostly optimize linear algebra / matmul
 - Mostly figure out how to effectively transfer data from compute to memory to disk
 
-Say we train a transformer model for 1 hour. Say it is trained on 1 gpu which has 4 cores and peak FLOP/s for 1 million. Also let's say the average utilization of the GPU in that 1 hour of training is 60%. Then how would we calculate throughput of training ? 
-
-The throughput calculation:
-Training time: 1 hour = 3600 seconds
-Number of cores: 4
-Peak FLOP/s per core: 1,000,000
-Total peak FLOP/s: 4 cores * 1,000,000 FLOP/s = 4,000,000 FLOP/s
-Utilization rate: 60% = 0.6
-Effective FLOP/s: 4,000,000 FLOP/s * 0.6 = 2,400,000 FLOP/s
-Memory Bandwidth (BW): 500 GB/s
-Data Transfer Rate: 1000 MB/s (note: 1 GB = 1024 MB, so 1000 MB/s ≈ 0.9765625 GB/s)
-Throughput of training (in FLOP/s): 2,400,000 FLOP/s * 3600 seconds = 8,640,000,000 FLOP
-Memory Bandwidth Utilization: assume 50% of the memory bandwidth is utilized during training (a rough estimate)
-Effective Memory Bandwidth: 500 GB/s * 0.5 = 250 GB/s
-Data Transfer Volume: assume 100 GB of data is transferred during the 1-hour training (a rough estimate)
-Now, we can calculate the memory bandwidth and data transfer contributions to the throughput:
-Memory Bandwidth Contribution: 250 GB/s * 3600 seconds ≈ 900,000,000 GB-s (or 900 exaB-s)
-Data Transfer Contribution: 100 GB / 3600 seconds ≈ 0.0277778 GB/s (or 27.7778 MB/s)
-The total throughput of training now includes the contributions from FLOP/s, memory bandwidth, and data transfer:
-Total Throughput: 8,640,000,000 FLOP + 900,000,000 GB-s + 27.7778 MB/s
+Say we train a transformer model for 1 hour. 
+Say it is trained on 1 gpu which has 4 cores and peak FLOP/s for 1 million. 
+Also let's say the average utilization of the GPU in that 1 hour of training is 60%. 
+Then how would we calculate throughput of training ? 
+	Training time: 1 hour = 3600 seconds
+	Number of cores: 4
+	Peak FLOP/s per core: 1,000,000
+	Total peak FLOP/s: 4 cores * 1,000,000 FLOP/s = 4,000,000 FLOP/s
+	Utilization rate: 60% = 0.6
+	Effective FLOP/s: 4,000,000 FLOP/s * 0.6 = 2,400,000 FLOP/s
+	Memory Bandwidth (BW): 500 GB/s
+	Data Transfer Rate: 1000 MB/s (note: 1 GB = 1024 MB, so 1000 MB/s ≈ 0.9765625 GB/s)
+	Throughput of training (in FLOP/s): 2,400,000 FLOP/s * 3600 seconds = 8,640,000,000 FLOP
+	Memory Bandwidth Utilization: assume 50% of the memory bandwidth is utilized during training (a rough estimate)
+	Effective Memory Bandwidth: 500 GB/s * 0.5 = 250 GB/s
+	Data Transfer Volume: assume 100 GB of data is transferred during the 1-hour training (a rough estimate)
+	Now, we can calculate the memory bandwidth and data transfer contributions to the throughput:
+	Memory Bandwidth Contribution: 250 GB/s * 3600 seconds ≈ 900,000,000 GB-s (or 900 exaB-s)
+	Data Transfer Contribution: 100 GB / 3600 seconds ≈ 0.0277778 GB/s (or 27.7778 MB/s)
+	The total throughput of training now includes the contributions from FLOP/s, memory bandwidth, and data transfer:
+	Total Throughput: 8,640,000,000 FLOP + 900,000,000 GB-s + 27.7778 MB/s
 
 We can also calculate the number of operations in the forward and backward passes and then multiply it by the number of passes made during training.
