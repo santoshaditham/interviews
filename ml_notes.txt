@@ -5,7 +5,7 @@ mean = sum(points) / count(points)
 variance = sum(square(point-mean)) / count(points)
 covariance = sum(1/n (x-xmean) * (y-ymean)), talks about how x and y change together
 std = sqrt(variance)
-std error - if we take multiple data samples from population, we can calc std of means
+std error - like std, it is to check if mean of sample dataset is close to mean of population
 
 intuition behind using prior & posterior distr :
 	if we assume a random variable x follows a guassian prior with 0 mean and covariance that can be explained by a function f(x) 
@@ -82,7 +82,7 @@ Transform data -
 	normalize for RF ; standradize for SVM ; Min-Max scale for KNN etc
 	for time series, maybe normalize to historical min, max
 		
-	
+Check your data -
 T-test, ANOVA and Tukey (assume normal distribution)
 T-test is to measure if 2 sample means are different - yes/no
 ANOVA is to measure if 3 or more sample means are different - yes/no. 
@@ -91,6 +91,7 @@ Individual samples cannot have big diff in their variance + no outliers
 If p-value is less than alpha (typically 0.05), then means are different because null hypothesis that both are same is invalid. 
 But by how much? Use Tukey test which does all pairs comparison.
 Always do tests on means of samples, not values in samples 
+Standard Error: if we take multiple data samples from population, we can calc std of means
 Always get data/samples from both user groups & time windows (same user group - trends, seasonality etc)
 
 
@@ -164,6 +165,7 @@ Decision trees rely on entropy which is average of variance
 	repeat same on other features
 	as tree depth increases we are making trees too specific
 	as num trees increases we are making model learn (info gain) less and less
+	Very good for interpretiblity & typically dont overfit
 Rf is bagging technique, learn individual learners & avg. 
 	Bootstapping is randomly selecting data from raw
 	Build bunch of decision trees for randomly picked features from randomly picked data (bootstrap)
@@ -172,6 +174,7 @@ Rf is bagging technique, learn individual learners & avg.
 	Bagging = bootstrap + aggregate to prevent overfit
 	Check out-of-bag data accuracy (look at all trees) 
 	Missing data for features need to be guessed
+	Very good for interpretiblity & typically dont overfit (due to bagging)
 GBT is boosting technique, learn weak learners in sequence + use weights.
 	Start with a random leaf & build RESIDUAL/ERROR tree using averages
 	Calculate scores, gain & compare gain with some defined gamma to prune (or not)
@@ -180,6 +183,7 @@ GBT is boosting technique, learn weak learners in sequence + use weights.
 	Aggregate values by averaging features (regression) / log odds (classification)
 	Calculate predictions using a fixed learning rate (avoid overfit)
 	XGBoost - advanced regularization while calculating scores & outputs
+	Okayish for interpretiblity & okayish towards preventing overfit
 	
 Trees --> assume linear decision boundaries ; 
 can use data as is because impurity is calc like if-else & small weak learners are used. Normalizing data wont matter.
