@@ -188,6 +188,67 @@ GBT is boosting technique, learn weak learners in sequence + use weights.
 Trees --> assume linear decision boundaries ; 
 can use data as is because impurity is calc like if-else & small weak learners are used. Normalizing data wont matter.
 
+Here is a XGB example regarding tree splits -->
+
+Regression (Predicting Transaction Amount)
+
+Let's say we have a dataset of transactions with features like transaction time, merchant category code (MCC), and user's past spending patterns. Our target variable is the transaction amount.
+
+Parent Node:
+- Data:
+  Transaction 1: $100
+  Transaction 2: $50
+  Transaction 3: $200
+  Transaction 4: $150
+- Variance:
+  Calculate the mean: (100 + 50 + 200 + 150) / 4 = $125
+  Calculate the squared deviations from the mean: (100-125)^2 + (50-125)^2 + (200-125)^2 + (150-125)^2 = 18750
+  Divide by the number of samples: 18750 / 4 = 4687.5
+  Variance (parent): 4687.5
+
+Child Nodes (Split on Merchant Category Code):
+- Child Node 1 (MCC = Restaurant):
+  Transaction 1: $100
+  Transaction 2: $50
+  Variance (child 1): Calculate the same way as above, but with just these two transactions.
+- Child Node 2 (MCC = Retail):
+  Transaction 3: $200
+  Transaction 4: $150
+  Variance (child 2): Calculate as above.
+
+Information Gain:
+  Weighted Variance (children): Calculate using the formula mentioned earlier, considering the proportion of samples in each child node.
+  Information Gain: Subtract the weighted variance of children from the variance of the parent node.
+
+Example: Classification (Predicting Fraudulent Transactions)
+
+Let's use the same dataset, but now the target variable is binary (1 for fraudulent, 0 for not fraudulent).
+
+Parent Node:
+- Data:
+  Transaction 1: 0 (not fraudulent)
+  Transaction 2: 1 (fraudulent)
+  Transaction 3: 0 (not fraudulent)
+  Transaction 4: 1 (fraudulent)
+- Gini Impurity:
+  Probability of class 0: 2/4 = 0.5
+  Probability of class 1: 2/4 = 0.5
+  Gini(parent) = 1 - (0.5^2 + 0.5^2) = 0.5
+  Child Nodes (Split on Time of Day):
+
+Child Node 1 (Daytime):
+  Transaction 1: 0
+  Transaction 3: 0
+  Gini (child 1): 0 (perfectly pure node)
+Child Node 2 (Nighttime):
+  Transaction 2: 1
+  Transaction 4: 1
+  Gini (child 2): 0 (perfectly pure node)
+
+Information Gain:
+  Weighted Gini (children): 0 (since both child nodes are pure)
+  Information Gain: 0.5 - 0 = 0.5
+
 
 SVM (support vector machines) for classification -
 =========
